@@ -450,28 +450,42 @@
         <!-- LEFT COLUMN: Authentic Brand Pitch & Actions -->
         <div class="hero-left-column" style="display: flex; flex-direction: column; gap: 20px;">
 
-          <div class="hero-tagline font-mono" style="font-size: var(--font-size-sm); color: var(--color-muted-text); text-transform: none; margin-bottom: 14px;">
+          <!-- Real-Time Availability & Timezone Pill -->
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35); color: #10b981; font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600; width: fit-content;">
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></span>
+            <span>Open for Summer 2026 Internships</span>
+            <span style="color: rgba(255,255,255,0.25);">|</span>
+            <span style="color: var(--color-muted-text);">IST (UTC+5:30)</span>
+            <span style="color: rgba(255,255,255,0.25);">|</span>
+            <span style="color: var(--color-nebula-cyan);">⚡ Reply &lt; 2h</span>
+          </div>
+
+          <div class="hero-tagline font-mono" style="font-size: var(--font-size-sm); color: var(--color-muted-text); text-transform: none; margin-bottom: 8px;">
             <span style="color: var(--color-starlight-white); font-weight: 700;">Anurag Sahu</span>
             <span style="color: var(--color-nebula-cyan); font-weight: 700;">•</span>
             <span>B.Tech CSE (AI & ML) 2nd Year</span>
           </div>
 
           <h1 class="hero-title hero-heading">
-            Building Modern Full-Stack Systems & Practical AI Solutions.
+            Building Modern Full-Stack Systems &amp; Practical AI Solutions.
           </h1>
 
           <p class="hero-subtitle">
             Hi, I'm <strong style="color: var(--color-starlight-white);">Anurag Sahu</strong> — a Computer Science student focused on AI and web development. I build fast, clean web apps and practical machine learning projects.
           </p>
 
-          <div class="hero-actions">
+          <div class="hero-actions" style="display: flex; gap: 10px; flex-wrap: wrap;">
             <a href="#roadmap" class="btn-primary reel-btn" aria-label="Explore Anurag Sahu's projects roadmap">
               <span>Explore My Work</span>
               <i data-lucide="arrow-right" style="width: 18px;" aria-hidden="true"></i>
             </a>
-            <a href="assets/anurag-sahu-resume.pdf" download="Anurag_Sahu_Resume.pdf" target="_blank" class="btn-secondary" aria-label="Download Resume PDF">
-              <i data-lucide="file-text" style="width: 18px; color: var(--color-nebula-cyan);" aria-hidden="true"></i>
-              <span>Download Resume</span>
+            <button onclick="openResumeModal()" class="btn-secondary" style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px;" aria-label="View Resume in Browser">
+              <i data-lucide="eye" style="width: 18px; color: var(--color-nebula-cyan);" aria-hidden="true"></i>
+              <span>View Resume</span>
+            </button>
+            <a href="assets/anurag-sahu-resume.pdf" download="Anurag_Sahu_Resume.pdf" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 14px;" aria-label="Download Resume PDF">
+              <i data-lucide="download" style="width: 16px; color: var(--color-royal-gold);" aria-hidden="true"></i>
+              <span>PDF</span>
             </a>
           </div>
 
@@ -963,34 +977,49 @@
         </p>
       </div>
 
-      <div class="glass-panel glass-spotlight" style="padding: 20px 24px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+      <div class="glass-panel glass-spotlight" style="padding: 24px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
           
-          <!-- LeetCode Card -->
-          <a href="https://leetcode.com/u/anuragsahu0/" id="leetcode-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 16px 20px; border-radius: var(--radius-lg); display: flex; align-items: center; gap: 14px; border-color: rgba(255,161,22,0.4); background: rgba(15,23,42,0.6); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(255,161,22,0.12); border: 1px solid rgba(255,161,22,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 12px rgba(255,161,22,0.2);">
-              <i data-lucide="code-2" style="width: 22px; height: 22px; color: #ffa116;" aria-hidden="true"></i>
+          <!-- GitHub Card -->
+          <a href="https://github.com/anuragsahu0" id="github-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 18px 22px; border-radius: var(--radius-lg); display: flex; align-items: center; gap: 16px; border-color: rgba(6,182,212,0.4); background: rgba(15,23,42,0.65); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
+            <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 15px rgba(6,182,212,0.25);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#06b6d4" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </div>
             <div>
-              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: #ffa116; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Problem Solving</div>
-              <h3 style="font-family: var(--font-display); font-size: var(--font-size-base); font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">LeetCode</h3>
+              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-nebula-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Open Source &amp; Systems</div>
+              <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">GitHub @anuragsahu0</h3>
               <span class="font-mono" style="font-size: var(--font-size-xs); color: var(--color-muted-text); display: flex; align-items: center; gap: 4px;">
-                <span>View Profile</span>
+                <span>15+ Repos • JavaScript, Python, C++</span>
+                <i data-lucide="external-link" style="width: 13px;" aria-hidden="true"></i>
+              </span>
+            </div>
+          </a>
+
+          <!-- LeetCode Card -->
+          <a href="https://leetcode.com/u/anuragsahu0/" id="leetcode-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 18px 22px; border-radius: var(--radius-lg); display: flex; align-items: center; gap: 16px; border-color: rgba(255,161,22,0.4); background: rgba(15,23,42,0.65); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
+            <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(255,161,22,0.12); border: 1px solid rgba(255,161,22,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 15px rgba(255,161,22,0.25);">
+              <i data-lucide="code-2" style="width: 24px; height: 24px; color: #ffa116;" aria-hidden="true"></i>
+            </div>
+            <div>
+              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: #ffa116; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Data Structures &amp; Algorithms</div>
+              <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">LeetCode</h3>
+              <span class="font-mono" style="font-size: var(--font-size-xs); color: var(--color-muted-text); display: flex; align-items: center; gap: 4px;">
+                <span>Daily Practice • DP, Graphs, Trees</span>
                 <i data-lucide="external-link" style="width: 13px;" aria-hidden="true"></i>
               </span>
             </div>
           </a>
 
           <!-- GeeksforGeeks Card -->
-          <a href="https://www.geeksforgeeks.org/profile/shivasal83s" id="gfg-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 16px 20px; border-radius: var(--radius-lg); display: flex; align-items: center; gap: 14px; border-color: rgba(47,141,70,0.4); background: rgba(15,23,42,0.6); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(47,141,70,0.12); border: 1px solid rgba(47,141,70,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 12px rgba(47,141,70,0.2);">
-              <i data-lucide="award" style="width: 22px; height: 22px; color: #2f8d46;" aria-hidden="true"></i>
+          <a href="https://www.geeksforgeeks.org/profile/shivasal83s" id="gfg-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 18px 22px; border-radius: var(--radius-lg); display: flex; align-items: center; gap: 16px; border-color: rgba(47,141,70,0.4); background: rgba(15,23,42,0.65); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
+            <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(47,141,70,0.12); border: 1px solid rgba(47,141,70,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 15px rgba(47,141,70,0.25);">
+              <i data-lucide="award" style="width: 24px; height: 24px; color: #2f8d46;" aria-hidden="true"></i>
             </div>
             <div>
-              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: #2f8d46; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">DSA & Core CS</div>
-              <h3 style="font-family: var(--font-display); font-size: var(--font-size-base); font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">GeeksforGeeks</h3>
+              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: #2f8d46; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Core CS &amp; Foundations</div>
+              <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">GeeksforGeeks</h3>
               <span class="font-mono" style="font-size: var(--font-size-xs); color: var(--color-muted-text); display: flex; align-items: center; gap: 4px;">
-                <span>View Profile</span>
+                <span>OOP, Operating Systems, DBMS</span>
                 <i data-lucide="external-link" style="width: 13px;" aria-hidden="true"></i>
               </span>
             </div>
@@ -1071,9 +1100,14 @@
           <div>• Real-Time Kitchen Order Display (KDS) via WebSockets</div>
           <div>• Inventory Stock Tracking & Digital Invoice Billing Generation</div>
         </div>
-        <div style="margin-top: 14px; display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-text-muted); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 4px 10px; border-radius: var(--radius-sm);">
-          <span style="width: 6px; height: 6px; border-radius: 50%; background: #f59e0b;"></span>
-          <span>Architecture &amp; System Spec in Progress</span>
+        <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <button onclick="openRmsArchModal()" class="btn-primary" style="font-size: var(--font-size-xs); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;" aria-label="View Restaurant Management System Architecture">
+            <span>🔬 View System Architecture &amp; Schemas</span>
+          </button>
+          <a href="https://github.com/anuragsahu0" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: var(--font-size-xs); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none;" aria-label="GitHub Repository">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub Spec</span>
+          </a>
         </div>
       </div>
 
@@ -1098,9 +1132,14 @@
           <div>• Attendance Tracking & Automated Percentage Calculation</div>
           <div>• Online Examination Result Publishing & Digital Fee Gateway</div>
         </div>
-        <div style="margin-top: 14px; display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-text-muted); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 4px 10px; border-radius: var(--radius-sm);">
-          <span style="width: 6px; height: 6px; border-radius: 50%; background: #f59e0b;"></span>
-          <span>Architecture &amp; System Spec in Progress</span>
+        <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <button onclick="openRmsArchModal()" class="btn-primary" style="font-size: var(--font-size-xs); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;" aria-label="View Restaurant Management System Architecture">
+            <span>🔬 View System Architecture &amp; Schemas</span>
+          </button>
+          <a href="https://github.com/anuragsahu0" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: var(--font-size-xs); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none;" aria-label="GitHub Repository">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub Spec</span>
+          </a>
         </div>
       </div>
 
@@ -1313,37 +1352,170 @@
     </div>
   </div>
 
-  <!-- CYBERPUNK HUD VPN / PROXY WARNING MODAL -->
-  <div id="vpn-warning-modal" class="fixed inset-0 z-[10001] hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="position: fixed; inset: 0; z-index: 10001; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.88); backdrop-filter: blur(14px);">
-    <div style="background: rgba(14, 10, 4, 0.96); padding: 28px; border-radius: 24px; max-width: 420px; width: 100%; text-align: center; border: 1px solid rgba(245, 158, 11, 0.5); box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 35px rgba(245, 158, 11, 0.25);" class="font-mono">
-      <div style="width: 58px; height: 58px; margin: 0 auto 14px auto; border-radius: 50%; background: rgba(245, 158, 11, 0.15); border: 2px solid #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 26px;">
-        🛡️
+  <!-- 1-CLICK IN-BROWSER RESUME VIEWER MODAL -->
+  <div id="resume-modal" class="fixed inset-0 z-[10002] hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="position: fixed; inset: 0; z-index: 10002; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.9); backdrop-filter: blur(16px);" onclick="if(event.target === this) closeResumeModal()">
+    <div id="resume-modal-card" style="background: rgba(10, 13, 20, 0.98); border-radius: 24px; max-width: 920px; width: 100%; height: 90vh; display: flex; flex-direction: column; border: 1px solid rgba(6, 182, 212, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 45px rgba(6, 182, 212, 0.2); overflow: hidden; transition: all 0.25s ease;">
+      <!-- Modal Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(15, 23, 42, 0.7);" class="font-mono">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></div>
+          <span style="font-weight: 700; color: #ffffff; font-size: 0.9rem;">Anurag_Sahu_Resume.pdf</span>
+          <span style="font-size: 0.72rem; color: var(--color-nebula-cyan); background: rgba(6,182,212,0.12); padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(6,182,212,0.3);">Verified 2026</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="assets/anurag-sahu-resume.pdf" download="Anurag_Sahu_Resume.pdf" class="btn-primary" style="font-size: 0.75rem; padding: 7px 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span>Download PDF</span>
+          </a>
+          <button onclick="closeResumeModal()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(239,68,68,0.2)'; this.style.color='#ef4444';" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.color='#cbd5e1';" aria-label="Close Resume Modal">
+            ✕
+          </button>
+        </div>
       </div>
-
-      <div style="margin-bottom: 10px;">
-        <span style="font-size: 10px; color: #f59e0b; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); padding: 3px 10px; border-radius: 999px; display: inline-block; margin-bottom: 8px;">
-          ● SECURITY SHIELD PROTOCOL
-        </span>
-        <h3 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 0;">
-          VPN / Proxy Detected
-        </h3>
+      <!-- Resume PDF Embed Frame -->
+      <div style="flex: 1; width: 100%; height: 100%; background: #0b0f19; overflow: hidden; position: relative;">
+        <iframe id="resume-iframe" src="assets/anurag-sahu-resume.pdf#toolbar=0&navpanes=0" title="Anurag Sahu Resume Preview" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
       </div>
-
-      <p style="font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.6; font-family: Inter, sans-serif; background: rgba(0,0,0,0.4); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;">
-        Aapki secure aur smooth interactive browsing ke liye, <strong style="color: #fbbf24;">kripya apna VPN disconnect (remove) karein</strong> taaki WebGL aur low-latency features seamlessly chal sakein.
-      </p>
-
-      <div style="background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 12px; padding: 10px 14px; margin-bottom: 20px; font-size: 11px; text-align: left; color: #e2e8f0; display: flex; flex-direction: column; gap: 4px;">
-        <div>📡 <strong>Detected IP:</strong> <code id="vpn-modal-ip" style="color: #fbbf24;">Proxy Route</code></div>
-        <div>🔍 <strong>Security Reason:</strong> <span id="vpn-modal-reason" style="color: #cbd5e1;">Active VPN / Proxy Tunnel</span></div>
+      <!-- Modal Footer -->
+      <div style="padding: 10px 20px; background: rgba(5, 8, 15, 0.9); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-muted-text);">
+        <span>Maharana Pratap Institute of Professional Studies (AKTU) • B.Tech CSE (AI &amp; ML)</span>
+        <span>Open for Summer 2026 Internships</span>
       </div>
+    </div>
+  </div>
 
-      <div style="display: flex; gap: 10px;">
-        <button onclick="window.location.reload()" style="flex: 1; padding: 12px 0; border-radius: 12px; background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; font-weight: 800; font-size: 12px; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);">
-          🔄 Reload Page
+  <!-- RESTAURANT MANAGEMENT SYSTEM ARCHITECTURE BLUEPRINT MODAL -->
+  <div id="rms-arch-modal" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.9); backdrop-filter: blur(14px);" onclick="if(event.target === this) closeRmsArchModal()">
+    <div id="rms-arch-modal-card" style="background: rgba(10, 12, 18, 0.98); padding: 32px; border-radius: 24px; max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; border: 1px solid rgba(245, 158, 11, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 40px rgba(245, 158, 11, 0.2); transition: all 0.25s ease;" class="font-mono">
+      <!-- Modal Top Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); color: #f59e0b; font-size: 0.72rem; font-weight: 700; margin-bottom: 8px;">
+            <span>⚡ MULTI-TENANT POS • REAL-TIME KDS &amp; INVENTORY ARCHITECTURE</span>
+          </div>
+          <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: #ffffff; margin: 0; line-height: 1.2;">
+            Restaurant Management System (POS &amp; KDS)
+          </h3>
+          <p style="color: var(--color-muted-text); font-size: 0.85rem; margin-top: 6px; margin-bottom: 0;">
+            A distributed event-driven restaurant operations platform with bi-directional WebSocket Kitchen Order Display (KDS), atomic stock inventory locking, and multi-role RBAC.
+          </p>
+        </div>
+        <button onclick="closeRmsArchModal()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(239,68,68,0.2)'; this.style.color='#ef4444';" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.color='#cbd5e1';" aria-label="Close RMS Modal">
+          ✕
         </button>
-        <button onclick="dismissVpnModal()" style="padding: 12px 16px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #fff; font-size: 12px; cursor: pointer;">
-          Dismiss
+      </div>
+
+      <!-- Architecture Pipeline -->
+      <div style="margin-bottom: 24px;">
+        <h4 style="color: #f59e0b; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+          <span>⚡</span> 1. Real-Time Kitchen Order Display (KDS) Event Pipeline
+        </h4>
+        <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 14px; padding: 18px; font-size: 0.78rem; line-height: 1.7; color: #e2e8f0; overflow-x: auto;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #f59e0b; border-radius: 4px;">
+              <strong style="color: #fbbf24;">[1] Table Order Ingestion:</strong> Waiter terminal submits order payload via REST API with idempotency keys. Validates active table session and atomic menu stock.
+            </div>
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #06b6d4; border-radius: 4px;">
+              <strong style="color: #38bdf8;">[2] Redis Pub/Sub Event Broadcast:</strong> Order event dispatched to Redis channel <code>kitchen:orders:station_{id}</code> with &lt;10ms delivery to kitchen display screens.
+            </div>
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #10b981; border-radius: 4px;">
+              <strong style="color: #34d399;">[3] Bi-directional WebSocket State Machine:</strong> Kitchen chefs mark tickets as <code>PREPARING</code> ➔ <code>READY</code> ➔ <code>SERVED</code> with live sound cues broadcasted to table stewards.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Normalized Data Schema Blueprint -->
+      <div style="margin-bottom: 24px;">
+        <h4 style="color: #f59e0b; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+          <span>⚡</span> 2. Relational / Document Schema Blueprint
+        </h4>
+        <div style="background: #05070c; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px; font-size: 0.75rem; line-height: 1.6; color: #94a3b8; overflow-x: auto;">
+<pre style="margin: 0; font-family: 'JetBrains Mono', 'Fira Code', monospace;"><code style="color: #e2e8f0;"><span style="color: #64748b;">// Core Entities &amp; Relations</span>
+<span style="color: #f43f5e;">RestaurantTenant</span>: { tenantId, name, currency, taxRateGst, billingPlan, activeStatus }
+<span style="color: #f43f5e;">DiningTable</span>:      { tableId, tenantId, tableNumber, capacity, status: ['VACANT', 'OCCUPIED', 'RESERVED'] }
+<span style="color: #f43f5e;">OrderTicket</span>:      { orderId, tenantId, tableId, waiterId, items: [ { itemId, qty, modifiers } ], totalAmount, kdsStatus }
+<span style="color: #f43f5e;">InventoryItem</span>:    { itemId, tenantId, name, currentStock, reorderLevel, unitCost, autoDeductPerDish }
+<span style="color: #f43f5e;">StaffUser</span>:        { userId, tenantId, email, role: ['SUPER_ADMIN', 'MANAGER', 'CHEF', 'WAITER', 'CASHIER'], jwtHash }</code></pre>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; flex-wrap: wrap; gap: 12px;">
+        <span style="font-size: 0.75rem; color: var(--color-text-muted);">
+          ⚡ Technologies: Node.js, Express, MongoDB, Redis, WebSockets, Tailwind CSS
+        </span>
+        <button onclick="closeRmsArchModal()" style="padding: 10px 24px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #ffffff; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(245, 158, 11, 0.2)'; this.style.borderColor='#f59e0b';" onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)';">
+          Close Blueprint
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SMART COLLEGE ERP ARCHITECTURE BLUEPRINT MODAL -->
+  <div id="erp-arch-modal" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.9); backdrop-filter: blur(14px);" onclick="if(event.target === this) closeErpArchModal()">
+    <div id="erp-arch-modal-card" style="background: rgba(10, 12, 18, 0.98); padding: 32px; border-radius: 24px; max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; border: 1px solid rgba(139, 92, 246, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 40px rgba(139, 92, 246, 0.2); transition: all 0.25s ease;" class="font-mono">
+      <!-- Modal Top Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.35); color: #a78bfa; font-size: 0.72rem; font-weight: 700; margin-bottom: 8px;">
+            <span>⚡ ACADEMIC ERP • RBAC, ATTENDANCE &amp; FEE LEDGER ENGINE</span>
+          </div>
+          <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: #ffffff; margin: 0; line-height: 1.2;">
+            Smart College ERP Platform
+          </h3>
+          <p style="color: var(--color-muted-text); font-size: 0.85rem; margin-top: 6px; margin-bottom: 0;">
+            A unified academic management system featuring 5-tier role-based access control (RBAC), automated 75% attendance compliance auditing, and digital fee payment gateway reconciliation.
+          </p>
+        </div>
+        <button onclick="closeErpArchModal()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(239,68,68,0.2)'; this.style.color='#ef4444';" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.color='#cbd5e1';" aria-label="Close ERP Modal">
+          ✕
+        </button>
+      </div>
+
+      <!-- Core Engine Features -->
+      <div style="margin-bottom: 24px;">
+        <h4 style="color: #a78bfa; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+          <span>⚡</span> 1. Core Architectural Pillars
+        </h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 12px;">
+            <div style="color: #38bdf8; font-weight: 700; font-size: 0.82rem; margin-bottom: 4px;">5-Tier Granular RBAC 🛡️</div>
+            <p style="font-size: 0.75rem; color: #94a3b8; margin: 0; line-height: 1.5;">Separation of privileges: Super Admin, Academic Dean, Department Faculty, Exam Controller, and Student Portal with JWT claims.</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 12px;">
+            <div style="color: #a78bfa; font-weight: 700; font-size: 0.82rem; margin-bottom: 4px;">Attendance Audit Worker 📊</div>
+            <p style="font-size: 0.75rem; color: #94a3b8; margin: 0; line-height: 1.5;">Daily cron job recalculates cumulative percentages. Flags &lt;75% debarred status and dispatches automated alerts to students and guardians.</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 12px;">
+            <div style="color: #34d399; font-weight: 700; font-size: 0.82rem; margin-bottom: 4px;">Fee Payment Gateway Webhook 💳</div>
+            <p style="font-size: 0.75rem; color: #94a3b8; margin: 0; line-height: 1.5;">Idempotent payment webhook verification, automated digital invoice generation, and double-entry accounting reconciliation ledger.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Schema Blueprint -->
+      <div style="margin-bottom: 24px;">
+        <h4 style="color: #a78bfa; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+          <span>⚡</span> 2. Data Schema &amp; Audit Trail Model
+        </h4>
+        <div style="background: #05070c; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px; font-size: 0.75rem; line-height: 1.6; color: #94a3b8; overflow-x: auto;">
+<pre style="margin: 0; font-family: 'JetBrains Mono', 'Fira Code', monospace;"><code style="color: #e2e8f0;"><span style="color: #64748b;">// Academic Schema Entities</span>
+<span style="color: #f43f5e;">StudentProfile</span>:     { studentId, rollNumber, branch: 'CSE_AIML', semester, email, currentCgpa }
+<span style="color: #f43f5e;">CourseSubject</span>:      { courseCode, title, credits, department, facultyInChargeId, minAttendancePct: 75 }
+<span style="color: #f43f5e;">AttendanceLedger</span>:   { recordId, studentId, courseCode, lectureDate, status: ['PRESENT', 'ABSENT', 'DUTY_LEAVE'], markedByFacultyId }
+<span style="color: #f43f5e;">ExaminationResult</span>:  { examId, studentId, semester, subjects: [ { code, internalMarks, externalMarks, grade } ], sgpa }
+<span style="color: #f43f5e;">FeeTransaction</span>:     { txnId, studentId, semesterFee, paymentGateway: 'Razorpay', status: ['PENDING', 'SUCCESS', 'FAILED'], receiptNumber }</code></pre>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; flex-wrap: wrap; gap: 12px;">
+        <span style="font-size: 0.75rem; color: var(--color-text-muted);">
+          ⚡ Technologies: React.js, Node.js, Express, MongoDB, Tailwind CSS, Razorpay API
+        </span>
+        <button onclick="closeErpArchModal()" style="padding: 10px 24px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #ffffff; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(139, 92, 246, 0.2)'; this.style.borderColor='#8b5cf6';" onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)';">
+          Close Blueprint
         </button>
       </div>
     </div>
@@ -1487,12 +1659,126 @@
       }, 150);
     }
 
+    // Resume In-Browser Viewer
+    function openResumeModal() {
+      const modal = document.getElementById('resume-modal');
+      const card = document.getElementById('resume-modal-card');
+      if (modal) {
+        modal.style.display = 'flex';
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (card) {
+          card.style.transform = 'scale(0.95)';
+          card.style.opacity = '0';
+          setTimeout(() => {
+            card.style.transform = 'scale(1)';
+            card.style.opacity = '1';
+          }, 10);
+        }
+      }
+    }
+
+    function closeResumeModal() {
+      const modal = document.getElementById('resume-modal');
+      const card = document.getElementById('resume-modal-card');
+      if (card) {
+        card.style.transform = 'scale(0.95)';
+        card.style.opacity = '0';
+      }
+      setTimeout(() => {
+        if (modal) {
+          modal.style.display = 'none';
+          modal.classList.add('hidden');
+        }
+        document.body.style.overflow = '';
+      }, 150);
+    }
+
+    // Restaurant Management System Architecture Modal
+    function openRmsArchModal() {
+      const modal = document.getElementById('rms-arch-modal');
+      const card = document.getElementById('rms-arch-modal-card');
+      if (modal) {
+        modal.style.display = 'flex';
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (card) {
+          card.style.transform = 'scale(0.95)';
+          card.style.opacity = '0';
+          setTimeout(() => {
+            card.style.transform = 'scale(1)';
+            card.style.opacity = '1';
+          }, 10);
+        }
+      }
+    }
+
+    function closeRmsArchModal() {
+      const modal = document.getElementById('rms-arch-modal');
+      const card = document.getElementById('rms-arch-modal-card');
+      if (card) {
+        card.style.transform = 'scale(0.95)';
+        card.style.opacity = '0';
+      }
+      setTimeout(() => {
+        if (modal) {
+          modal.style.display = 'none';
+          modal.classList.add('hidden');
+        }
+        document.body.style.overflow = '';
+      }, 150);
+    }
+
+    // Smart College ERP Architecture Modal
+    function openErpArchModal() {
+      const modal = document.getElementById('erp-arch-modal');
+      const card = document.getElementById('erp-arch-modal-card');
+      if (modal) {
+        modal.style.display = 'flex';
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (card) {
+          card.style.transform = 'scale(0.95)';
+          card.style.opacity = '0';
+          setTimeout(() => {
+            card.style.transform = 'scale(1)';
+            card.style.opacity = '1';
+          }, 10);
+        }
+      }
+    }
+
+    function closeErpArchModal() {
+      const modal = document.getElementById('erp-arch-modal');
+      const card = document.getElementById('erp-arch-modal-card');
+      if (card) {
+        card.style.transform = 'scale(0.95)';
+        card.style.opacity = '0';
+      }
+      setTimeout(() => {
+        if (modal) {
+          modal.style.display = 'none';
+          modal.classList.add('hidden');
+        }
+        document.body.style.overflow = '';
+      }, 150);
+    }
+
     window.openGtaModal = openGtaModal;
     window.closeGtaModal = closeGtaModal;
+    window.openResumeModal = openResumeModal;
+    window.closeResumeModal = closeResumeModal;
+    window.openRmsArchModal = openRmsArchModal;
+    window.closeRmsArchModal = closeRmsArchModal;
+    window.openErpArchModal = openErpArchModal;
+    window.closeErpArchModal = closeErpArchModal;
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeGtaModal();
+        closeResumeModal();
+        closeRmsArchModal();
+        closeErpArchModal();
       }
     });
   </script>

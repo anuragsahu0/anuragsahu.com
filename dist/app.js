@@ -986,6 +986,108 @@ window.closeGtaModal = function() {
   }, 150);
 };
 
+window.openResumeModal = function() {
+  const modal = document.getElementById('resume-modal');
+  const card = document.getElementById('resume-modal-card');
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (card) {
+      card.style.transform = 'scale(0.95)';
+      card.style.opacity = '0';
+      setTimeout(() => {
+        card.style.transform = 'scale(1)';
+        card.style.opacity = '1';
+      }, 10);
+    }
+  }
+};
+
+window.closeResumeModal = function() {
+  const modal = document.getElementById('resume-modal');
+  const card = document.getElementById('resume-modal-card');
+  if (card) {
+    card.style.transform = 'scale(0.95)';
+    card.style.opacity = '0';
+  }
+  setTimeout(() => {
+    if (modal) {
+      modal.style.display = 'none';
+      modal.classList.add('hidden');
+    }
+    document.body.style.overflow = '';
+  }, 150);
+};
+
+window.openRmsArchModal = function() {
+  const modal = document.getElementById('rms-arch-modal');
+  const card = document.getElementById('rms-arch-modal-card');
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (card) {
+      card.style.transform = 'scale(0.95)';
+      card.style.opacity = '0';
+      setTimeout(() => {
+        card.style.transform = 'scale(1)';
+        card.style.opacity = '1';
+      }, 10);
+    }
+  }
+};
+
+window.closeRmsArchModal = function() {
+  const modal = document.getElementById('rms-arch-modal');
+  const card = document.getElementById('rms-arch-modal-card');
+  if (card) {
+    card.style.transform = 'scale(0.95)';
+    card.style.opacity = '0';
+  }
+  setTimeout(() => {
+    if (modal) {
+      modal.style.display = 'none';
+      modal.classList.add('hidden');
+    }
+    document.body.style.overflow = '';
+  }, 150);
+};
+
+window.openErpArchModal = function() {
+  const modal = document.getElementById('erp-arch-modal');
+  const card = document.getElementById('erp-arch-modal-card');
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (card) {
+      card.style.transform = 'scale(0.95)';
+      card.style.opacity = '0';
+      setTimeout(() => {
+        card.style.transform = 'scale(1)';
+        card.style.opacity = '1';
+      }, 10);
+    }
+  }
+};
+
+window.closeErpArchModal = function() {
+  const modal = document.getElementById('erp-arch-modal');
+  const card = document.getElementById('erp-arch-modal-card');
+  if (card) {
+    card.style.transform = 'scale(0.95)';
+    card.style.opacity = '0';
+  }
+  setTimeout(() => {
+    if (modal) {
+      modal.style.display = 'none';
+      modal.classList.add('hidden');
+    }
+    document.body.style.overflow = '';
+  }, 150);
+};
+
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     if (typeof window.closeGtaModal === 'function') window.closeGtaModal();
