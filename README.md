@@ -70,8 +70,8 @@ Portfolio/
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/anuragsahu0/anuragsahu-portfolio.git
-cd anuragsahu-portfolio
+git clone https://github.com/anuragsahu0/anuragsahu.com.git
+cd anuragsahu.com
 
 # 2. Install dependencies
 npm install
