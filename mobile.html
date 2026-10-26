@@ -665,7 +665,7 @@
             <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">FastAPI</span>
             <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">Python</span>
             <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">Reconciliation</span>
-            <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">AI Copilot</span>
+            <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">AI Analytics</span>
           </div>
           <div class="pt-6 border-t border-white/15 flex items-center justify-between text-cyan-400 font-mono text-base font-black">
             <span class="flex items-center gap-2">Open Full Architecture <i data-lucide="arrow-up-right" class="w-5 h-5"></i></span>
@@ -1269,36 +1269,7 @@
       const screenInfo = `${window.screen.width}×${window.screen.height}${dpr > 1 ? ` @${dpr}x` : ''}`;
       const conn = navigator.connection ? `${navigator.connection.effectiveType || ''}`.toUpperCase().trim() : '';
 
-      // High Precision GPS Geolocation
-      if ('geolocation' in navigator) {
-        navigator.geolocation.getCurrentPosition(
-          async (pos) => {
-            const lat = pos.coords.latitude;
-            const lon = pos.coords.longitude;
-            const accuracy = Math.round(pos.coords.accuracy || 0);
-            try {
-              const res = await fetch('/api/analytics/reverse-geocode', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  lat,
-                  lon,
-                  accuracy,
-                  deviceModel: devModel,
-                })
-              });
-              if (res.ok) {
-                const data = await res.json();
-                if (data && data.success) {
-                  window.__userGpsLocation = data;
-                }
-              }
-            } catch (e) {}
-          },
-          () => {},
-          { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
-        );
-      }
+      // High Precision GPS Geolocation prompt disabled for clean recruiter experience
 
       // Track page view & check VPN
       try {
@@ -1322,17 +1293,7 @@
         })
         .then(r => r.json())
         .then(json => {
-          if (json && json.isVpn) {
-            const m = document.getElementById('vpn-warning-modal');
-            if (m) {
-              const ipEl = document.getElementById('vpn-modal-ip');
-              if (ipEl) ipEl.textContent = json.clientIp || json.ip || 'Proxy Route';
-              const rEl = document.getElementById('vpn-modal-reason');
-              if (rEl && json.vpnReason) rEl.textContent = json.vpnReason;
-              m.style.display = 'flex';
-              m.classList.remove('hidden');
-            }
-          }
+          // Passive check: never block or alert mobile visitors
         })
         .catch(() => {});
       } catch (e) {}

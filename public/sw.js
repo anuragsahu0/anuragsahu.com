@@ -1,6 +1,6 @@
 /**
- * Anti-Gravity Portfolio Service Worker
- * Version: 2.0.0
+ * Anurag Sahu Portfolio Service Worker
+ * Version: 2.0.21
  * Architecture:
  * - HTML Documents: Strict NETWORK-FIRST (always fetch fresh HTML from network)
  * - Version Manifest: Strict NETWORK-ONLY (never cache /version.json)
@@ -8,14 +8,14 @@
  * - Cache Invalidation: Instant skipWaiting() + clients.claim() + old cache purge on activate
  */
 
-const CACHE_NAME = 'anti-gravity-cache-v2.0.0';
+const CACHE_NAME = 'anuragsahu-cache-v2.0.21';
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
-  '/styles.css?v=2.0.0',
-  '/app.js?v=2.0.0',
-  '/manifest.json?v=2.0.0'
+  '/styles.css?v=2.0.21',
+  '/app.js?v=2.0.21',
+  '/manifest.json?v=2.0.21'
 ];
 
 // 1. INSTALL: Immediately take over without waiting for tabs to close
@@ -24,7 +24,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(PRECACHE_ASSETS).catch((err) => {
-        console.warn('[SW 2.0.0] Precache warning:', err);
+        console.warn('[SW 2.0.2] Precache warning:', err);
       });
     })
   );
@@ -37,13 +37,13 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cache) => {
           if (cache !== CACHE_NAME) {
-            console.log('[SW 2.0.0] Deleting obsolete cache:', cache);
+            console.log('[SW 2.0.2] Deleting obsolete cache:', cache);
             return caches.delete(cache);
           }
         })
       );
     }).then(() => {
-      console.log('[SW 2.0.0] Claiming all open clients.');
+      console.log('[SW 2.0.2] Claiming all open clients.');
       return self.clients.claim();
     })
   );

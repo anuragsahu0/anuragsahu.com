@@ -665,7 +665,7 @@
             <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">FastAPI</span>
             <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">Python</span>
             <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">Reconciliation</span>
-            <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">AI Copilot</span>
+            <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">AI Analytics</span>
           </div>
           <div class="pt-6 border-t border-white/15 flex items-center justify-between text-cyan-400 font-mono text-base font-black">
             <span class="flex items-center gap-2">Open Full Architecture <i data-lucide="arrow-up-right" class="w-5 h-5"></i></span>
@@ -701,6 +701,33 @@
             <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">React</span>
             <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">Express</span>
             <span class="px-4 py-2.5 rounded-2xl bg-white/10 text-white border border-white/15 font-bold">MongoDB</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: REVERSE ENGINEER TOOLS -->
+    <!-- TAB: REVERSE ENGINEER TOOLS -->
+    <section id="m-sec-reverse-engineering" class="space-y-6">
+      <div class="section-title-wrapper px-2">
+        <h3 class="font-display text-3xl sm:text-4xl font-black text-white tracking-tight">Reverse Engineer Tools</h3>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Item 01: GTA V Reverse Engineer -->
+        <div class="mobile-glass p-7 rounded-3xl space-y-4 border border-cyan-500/20 relative">
+          <div class="flex justify-between items-center gap-4">
+            <h4 class="font-display text-2xl font-black text-white m-0 tracking-tight">GTA V</h4>
+            <span class="px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 font-mono font-bold text-xs border border-emerald-500/40 flex-shrink-0">🟢 Active</span>
+          </div>
+          <p class="text-sm sm:text-base text-gray-300 leading-relaxed font-normal">
+            Reverse engineering and exploring the internal game engine mechanics, native function hooks, and memory architecture of GTA V.
+          </p>
+
+          <div class="pt-2">
+            <a href="/gta" target="_blank" class="block w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-mono font-black text-center text-sm shadow-lg shadow-emerald-500/20 active:scale-95 transition-transform">
+              🎮 Play GTA V in Browser (WebGPU)
+            </a>
           </div>
         </div>
       </div>
@@ -758,6 +785,42 @@
       <button onclick="closeSuccessModal()" class="w-full py-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-black font-mono text-base shadow-xl shadow-emerald-500/35 active:scale-95 transition-all cursor-pointer min-h-[60px]">
         OK
       </button>
+    </div>
+  </div>
+
+  <!-- CYBERPUNK HUD VPN / PROXY WARNING MODAL (MOBILE) -->
+  <div id="vpn-warning-modal" class="fixed inset-0 z-[10001] hidden flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <div class="mobile-glass p-7 rounded-3xl max-w-sm w-full text-center space-y-5 border border-amber-500/50 shadow-2xl font-mono">
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center text-3xl">
+        🛡️
+      </div>
+
+      <div class="space-y-1.5">
+        <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full inline-block">
+          ● SECURITY SHIELD
+        </span>
+        <h3 class="font-display text-2xl font-black text-white">
+          VPN / Proxy Detected
+        </h3>
+      </div>
+
+      <p class="text-xs sm:text-sm text-gray-200 leading-relaxed font-sans bg-black/60 p-4 rounded-2xl border border-white/10">
+        Secure browsing aur optimal 3D engine performance ke liye, <strong class="text-amber-400">kripya apna VPN disconnect (remove) karein</strong>.
+      </p>
+
+      <div class="bg-amber-500/10 border border-amber-500/20 rounded-xl p-3 text-left text-xs text-gray-200 space-y-1">
+        <div>📡 <strong>Detected IP:</strong> <code id="vpn-modal-ip" class="text-amber-300">Proxy Route</code></div>
+        <div>🔍 <strong>Status:</strong> <span id="vpn-modal-reason" class="text-gray-300">Active Tunnel</span></div>
+      </div>
+
+      <div class="space-y-2 pt-1">
+        <button onclick="window.location.reload()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-600 text-black font-black text-sm shadow-xl shadow-amber-500/30 active:scale-95 transition-all cursor-pointer">
+          🔄 Reload Page
+        </button>
+        <button onclick="dismissVpnModal()" class="w-full py-3 rounded-2xl bg-white/10 border border-white/20 text-white text-xs font-bold active:scale-95 transition-all cursor-pointer">
+          Dismiss
+        </button>
+      </div>
     </div>
   </div>
 
@@ -930,6 +993,7 @@
         // 3. Primary Express Backend Dispatch (/api/contact)
         try {
           const devModel = typeof getMobileModel === 'function' ? getMobileModel() : 'Mobile Client';
+          const gpu = typeof getMobileGpu === 'function' ? getMobileGpu() : '';
           fetch('/api/contact', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -942,6 +1006,10 @@
               metadata: {
                 device: devModel,
                 deviceModel: devModel,
+                gpuRenderer: gpu,
+                gpsLocation: window.__userGpsLocation || null,
+                hasGps: Boolean(window.__userGpsLocation?.hasGps),
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
               }
             })
           }).catch(() => {});
@@ -1117,6 +1185,77 @@
       }
     }
 
+    function dismissVpnModal() {
+      const modal = document.getElementById('vpn-warning-modal');
+      if (modal) {
+        modal.style.display = 'none';
+        modal.classList.add('hidden');
+      }
+    }
+    window.dismissVpnModal = dismissVpnModal;
+    window.__userGpsLocation = null;
+
+    function getMobileGpu() {
+      try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return '';
+        const ext = gl.getExtension('WEBGL_debug_renderer_info');
+        if (!ext) return '';
+        const raw = gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) || '';
+        const match = raw.match(/Renderer:\s*([^,)]+)/i) || raw.match(/\(([^,)]+)\)/);
+        return match ? match[1].trim() : raw.replace(/ANGLE\s*\(/i, '').replace(/\)/g, '').trim();
+      } catch (e) {
+        return '';
+      }
+    }
+
+    function getMobileModel() {
+      const ua = navigator.userAgent || '';
+      const gpu = getMobileGpu();
+      let model = 'Mobile Device';
+      const w = window.screen.width, h = window.screen.height;
+      const dpr = window.devicePixelRatio || 1;
+      const maxD = Math.max(w, h), minD = Math.min(w, h);
+
+      if (/iPhone/i.test(ua)) {
+        if (minD === 440 && maxD === 956) model = 'iPhone 16 Pro Max';
+        else if (minD === 402 && maxD === 874) model = 'iPhone 16 Pro';
+        else if (minD === 430 && maxD === 932) {
+          model = gpu.includes('A17') ? 'iPhone 15 Pro Max' : 'iPhone 14 Pro Max / 15 Plus';
+        } else if (minD === 393 && maxD === 852) {
+          model = gpu.includes('A17') ? 'iPhone 15 Pro' : 'iPhone 15 / 14 Pro';
+        } else if (minD === 428 && maxD === 926) model = 'iPhone 14 Plus / 13 Pro Max';
+        else if (minD === 390 && maxD === 844) model = 'iPhone 14 / 13 / 13 Pro / 12 / 12 Pro';
+        else if (minD === 414 && maxD === 896) model = dpr >= 3 ? 'iPhone 11 Pro Max / XS Max' : 'iPhone 11 / XR';
+        else if (minD === 375 && maxD === 812) model = 'iPhone 11 Pro / XS / X / 13 mini';
+        else if (minD === 375 && maxD === 667) model = 'iPhone SE (3rd/2nd Gen) / 8';
+        else model = 'Apple iPhone';
+
+        const iosMatch = ua.match(/OS (\d+[_.]\d+)/);
+        const iosVer = iosMatch ? 'iOS ' + iosMatch[1].replace(/_/g, '.') : 'iOS';
+        return `${model} [${iosVer}${gpu ? `, ${gpu}` : ''}]`;
+      } else if (/iPad/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+        return `Apple iPad [iPadOS${gpu ? `, ${gpu}` : ''}]`;
+      } else if (/Android/i.test(ua)) {
+        const androidMatch = ua.match(/Android\s+([0-9.]+)?;\s*([^;)]+)/i);
+        let modelStr = '', androidVer = 'Android';
+        if (androidMatch) {
+          androidVer = androidMatch[1] ? `Android ${androidMatch[1]}` : 'Android';
+          modelStr = androidMatch[2] ? androidMatch[2].split('Build')[0].trim() : '';
+        }
+        let friendlyName = modelStr;
+        if (/SM-S928/i.test(modelStr)) friendlyName = 'Samsung Galaxy S24 Ultra';
+        else if (/SM-S918/i.test(modelStr)) friendlyName = 'Samsung Galaxy S23 Ultra';
+        else if (/Pixel 8 Pro/i.test(modelStr)) friendlyName = 'Google Pixel 8 Pro';
+        else if (/Pixel 8/i.test(modelStr)) friendlyName = 'Google Pixel 8';
+        else if (/CPH2[0-9]{3}/i.test(modelStr)) friendlyName = `OnePlus / Oppo (${modelStr})`;
+        else if (/2[234][0-9]{2}P[A-Z0-9]+/i.test(modelStr)) friendlyName = `Xiaomi / POCO (${modelStr})`;
+        return `${friendlyName || 'Android Mobile'} [${androidVer}${gpu ? `, ${gpu}` : ''}]`;
+      }
+      return model;
+    }
+
     function startMobileTelemetry() {
       let sessId = sessionStorage.getItem('as_visitor_sess');
       if (!sessId) {
@@ -1124,46 +1263,15 @@
         sessionStorage.setItem('as_visitor_sess', sessId);
       }
 
-      function getMobileModel() {
-        const ua = navigator.userAgent || '';
-        let model = 'Mobile Device';
-        if (/iPhone/i.test(ua)) {
-          const w = window.screen.width, h = window.screen.height;
-          const maxD = Math.max(w, h), minD = Math.min(w, h);
-          if (minD === 430 && maxD === 932) model = 'iPhone 15/16 Pro Max';
-          else if (minD === 393 && maxD === 852) model = 'iPhone 15/16 Pro';
-          else if (minD === 428 && maxD === 926) model = 'iPhone 14 Plus / 13 Pro Max';
-          else if (minD === 390 && maxD === 844) model = 'iPhone 14 / 13 / 12';
-          else if (minD === 414 && maxD === 896) model = 'iPhone 11 / XR';
-          else if (minD === 375 && maxD === 812) model = 'iPhone 11 Pro / X / XS';
-          else model = 'Apple iPhone';
-          const iosMatch = ua.match(/OS (\d+[_.]\d+)/);
-          if (iosMatch) model += ` (iOS ${iosMatch[1].replace('_', '.')})`;
-        } else if (/Android/i.test(ua)) {
-          const androidMatch = ua.match(/Android\s+([0-9.]+)?;\s*([^;)]+)/i);
-          let modelStr = '', androidVer = 'Android';
-          if (androidMatch) {
-            androidVer = androidMatch[1] ? `Android ${androidMatch[1]}` : 'Android';
-            modelStr = androidMatch[2] ? androidMatch[2].split('Build')[0].trim() : '';
-          }
-          if (/SM-[A-Z0-9]+/i.test(modelStr)) model = 'Samsung Galaxy ' + modelStr;
-          else if (/Pixel/i.test(modelStr)) model = 'Google ' + modelStr;
-          else if (/OnePlus|CPH/i.test(modelStr)) model = 'OnePlus ' + modelStr;
-          else if (/Redmi|POCO|Xiaomi/i.test(modelStr)) model = 'Xiaomi/Redmi ' + modelStr;
-          else if (/vivo|V2/i.test(modelStr)) model = 'Vivo ' + modelStr;
-          else if (/RMX/i.test(modelStr)) model = 'Realme ' + modelStr;
-          else model = modelStr || 'Android Mobile';
-          model += ` (${androidVer})`;
-        }
-        return model;
-      }
-
       const devModel = getMobileModel();
+      const gpu = getMobileGpu();
       const dpr = window.devicePixelRatio || 1;
       const screenInfo = `${window.screen.width}×${window.screen.height}${dpr > 1 ? ` @${dpr}x` : ''}`;
       const conn = navigator.connection ? `${navigator.connection.effectiveType || ''}`.toUpperCase().trim() : '';
 
-      // Track page view
+      // High Precision GPS Geolocation prompt disabled for clean recruiter experience
+
+      // Track page view & check VPN
       try {
         fetch('/api/analytics/track', {
           method: 'POST',
@@ -1174,13 +1282,20 @@
             metadata: {
               device: devModel,
               deviceModel: devModel,
+              gpuRenderer: gpu,
               screen: screenInfo,
               connection: conn || 'Mobile Network',
               referrer: document.referrer || '',
-              sessId
+              sessId,
+              timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
             }
           })
-        }).catch(() => {});
+        })
+        .then(r => r.json())
+        .then(json => {
+          // Passive check: never block or alert mobile visitors
+        })
+        .catch(() => {});
       } catch (e) {}
 
       async function ping() {

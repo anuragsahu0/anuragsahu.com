@@ -1,12 +1,12 @@
 {
-  "name": "anti-gravity-portfolio",
+  "name": "anuragsahu-portfolio",
   "private": true,
   "version": "2.0.0",
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "version:bump": "node -e \"const fs=require('fs'); const file='./version.json'; const v=JSON.parse(fs.readFileSync(file, 'utf8')); const parts=v.version.split('.').map(Number); parts[2]++; v.version=parts.join('.'); fs.writeFileSync(file, JSON.stringify(v, null, 2) + '\\n'); if(fs.existsSync('./public/version.json')) fs.writeFileSync('./public/version.json', JSON.stringify(v, null, 2) + '\\n'); console.log('Version bumped to ' + v.version);\"",
-    "build": "mkdir -p dist && cp -r index.html admin.html mobile.html AI-FINANCE-CONTROLLER.html app.js styles.css sw.js version.json _headers .htaccess assets gta b data public dist/ 2>/dev/null || true",
+    "build": "mkdir -p dist && cp -r index.html admin.html mobile.html AI-FINANCE-CONTROLLER.html app.js styles.css sw.js version.json manifest.json _headers .htaccess assets gta b data public dist/ 2>/dev/null || true",
     "predeploy": "npm run version:bump && npm run build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext js,jsx --fix",

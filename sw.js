@@ -1,6 +1,6 @@
 /**
- * Anti-Gravity Portfolio Service Worker
- * Version: 2.0.2
+ * Anurag Sahu Portfolio Service Worker
+ * Version: 2.0.21
  * Architecture:
  * - HTML Documents: Strict NETWORK-FIRST (always fetch fresh HTML from network)
  * - Version Manifest: Strict NETWORK-ONLY (never cache /version.json)
@@ -8,14 +8,14 @@
  * - Cache Invalidation: Instant skipWaiting() + clients.claim() + old cache purge on activate
  */
 
-const CACHE_NAME = 'anti-gravity-cache-v2.0.2';
+const CACHE_NAME = 'anuragsahu-cache-v2.0.21';
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
-  '/styles.css?v=2.0.2',
-  '/app.js?v=2.0.2',
-  '/manifest.json?v=2.0.2'
+  '/styles.css?v=2.0.21',
+  '/app.js?v=2.0.21',
+  '/manifest.json?v=2.0.21'
 ];
 
 // 1. INSTALL: Immediately take over without waiting for tabs to close

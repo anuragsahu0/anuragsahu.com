@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 /**
  * BackgroundCanvas Component
- * Renders a calm, ambient, high-performance WebGL/Canvas anti-gravity particle field.
+ * Renders a calm, ambient, high-performance WebGL/Canvas dynamic particle field.
  * Completely free of mouse tracking or cursor repulsion effects.
  */
 export const BackgroundCanvas = () => {

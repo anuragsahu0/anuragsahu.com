@@ -1,5 +1,5 @@
 /**
- * ANTI GRAVITY PORTFOLIO — TELEGRAM TELEMETRY NOTIFICATION SERVICE
+ * ANURAG SAHU PORTFOLIO — TELEGRAM NOTIFICATION SERVICE
  * Real-time instant visitor intelligence dispatched directly to owner's Telegram.
  * 
  * Features:

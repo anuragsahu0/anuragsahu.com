@@ -1,6 +1,6 @@
 /**
- * ANTI GRAVITY PORTFOLIO — STANDALONE INTERACTIVE ENGINE
- * Candidate: Anurag Sahu
+ * ANURAG SAHU PORTFOLIO — STANDALONE INTERACTIVE ENGINE
+ * Author: Anurag Sahu
  */
 
 const SERVER_HOST = window.location.hostname || 'localhost';
@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initContactForm();
   initCmsDynamicHydration();
-  initAccurateGeolocation();
-  checkVpnStatus();
 });
 
 /* -------------------------------------------------------------------------- */
@@ -223,66 +221,16 @@ function detectVisitorDevice() {
 }
 
 function initAccurateGeolocation() {
-  if (!('geolocation' in navigator)) return;
-
-  // Request high-precision GPS coordinates from visitor's device
-  navigator.geolocation.getCurrentPosition(
-    async (pos) => {
-      const lat = pos.coords.latitude;
-      const lon = pos.coords.longitude;
-      const accuracy = Math.round(pos.coords.accuracy || 0);
-
-      try {
-        const devInfo = typeof detectVisitorDevice === 'function' ? detectVisitorDevice() : {};
-        // Proxy through our backend API to guarantee 100% CORS compliance and instant Telegram alert
-        const res = await fetch('/api/analytics/reverse-geocode', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            lat,
-            lon,
-            accuracy,
-            deviceModel: devInfo.deviceModel || devInfo.label || 'Visitor Device',
-          }),
-        });
-
-        if (!res.ok) return;
-        const data = await res.json();
-        if (data && data.success) {
-          window.__userGpsLocation = data;
-        }
-      } catch (err) {
-        console.warn('[Geo] Reverse geocode error:', err);
-      }
-    },
-    (err) => {
-      // User dismissed or denied location permission; fall back to IP/ISP location
-    },
-    { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
-  );
+  // Silent / Non-intrusive: GPS permission prompt disabled to protect recruiter UX.
+  // Geo-location is resolved unobtrusively via server-side IP lookup.
 }
 
 async function checkVpnStatus() {
-  try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-    const res = await fetch(`/api/security/vpn-check?tz=${encodeURIComponent(tz)}`);
-    if (!res.ok) return;
-    const data = await res.json();
-    if (data && data.isVpn) {
-      showVpnWarningModal(data);
-    }
-  } catch (e) {}
+  // Passive check: never block or show alert modals to recruiters / enterprise VPN users
 }
 
 function showVpnWarningModal(data = {}) {
-  const modal = document.getElementById('vpn-warning-modal');
-  if (!modal) return;
-  const ipEl = document.getElementById('vpn-modal-ip');
-  if (ipEl) ipEl.textContent = data.clientIp || data.ip || 'Proxy Tunnel Route';
-  const reasonEl = document.getElementById('vpn-modal-reason');
-  if (reasonEl && data.vpnReason) reasonEl.textContent = data.vpnReason;
-  modal.style.display = 'flex';
-  modal.classList.remove('hidden');
+  // Disabled: never block visitors or corporate recruiters
 }
 
 function dismissVpnModal() {
@@ -389,10 +337,6 @@ function sendTelemetry(type, metadata = {}) {
       })
     }).then(async (res) => {
       if (res.ok) {
-        const json = await res.json().catch(() => null);
-        if (json && json.isVpn) {
-          showVpnWarningModal(json);
-        }
         try {
           const bc = new BroadcastChannel('anurag_portfolio_realtime');
           bc.postMessage({ type: 'telemetry_event', eventType: type, path: path || '/' });

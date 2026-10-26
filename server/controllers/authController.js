@@ -200,7 +200,7 @@ const login = async (req, res, next) => {
           401
         );
       }
-      const validPasswords = ['Admin@AntiGravity2026', 'AnuragSahu@2026#Launch', 'ABCDEF123'];
+      const validPasswords = ['Admin@AnuragSahu2026', 'AnuragSahu@2026#Launch', 'ABCDEF123'];
       const isMatch = memUser.password
         ? (memUser.password.startsWith('$2')
             ? await bcrypt.compare(password, memUser.password)

@@ -70,7 +70,7 @@ async function checkSystemHealth() {
 
   try {
     const startAuth = Date.now();
-    const secret = process.env.JWT_SECRET || 'anti-gravity-fallback-secret-2026';
+    const secret = process.env.JWT_SECRET || 'anuragsahu-fallback-secret-2026';
     const testPayload = { probe: 'health', timestamp: Date.now() };
     const testToken = jwt.sign(testPayload, secret, { expiresIn: '60s' });
     const decoded = jwt.verify(testToken, secret);

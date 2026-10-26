@@ -10,7 +10,7 @@ if (!cached) {
 
 /**
  * MongoDB Connection Handler
- * Connects to Mongoose URI if provided, caches connection for serverless lambdas.
+ * Connects to Mongoose URI if provided, caches connection across serverless lambda invocations.
  */
 const connectDB = async () => {
   if (cached.conn && mongoose.connection.readyState === 1) {
@@ -19,26 +19,35 @@ const connectDB = async () => {
 
   const mongoURI = process.env.MONGODB_URI;
   if (!mongoURI) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.log('ℹ️ MONGODB NOTICE: MONGODB_URI not set. Running in lightweight fallback mode.');
-    }
+    console.warn('[MongoDB] MONGODB_URI not configured in environment. Using in-memory fallback.');
     return null;
   }
 
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
-      maxPoolSize: 10,
-      serverSelectionTimeoutMS: 5000,
+      maxPoolSize: 5,
+      minPoolSize: 1,
+      serverSelectionTimeoutMS: 8000,
       socketTimeoutMS: 45000,
-      family: 4,
+      connectTimeoutMS: 10000,
+      heartbeatFrequencyMS: 10000,
+      retryWrites: true,
+      autoIndex: process.env.NODE_ENV !== 'production',
     };
-    cached.promise = mongoose.connect(mongoURI, opts).then((m) => {
-      if (process.env.NODE_ENV !== 'production') {
+
+    cached.promise = mongoose
+      .connect(mongoURI, opts)
+      .then((m) => {
         console.log(`🍃 MONGODB CONNECTED: host=${m.connection.host}`);
-      }
-      return m;
-    });
+        return m;
+      })
+      .catch((err) => {
+        console.error('⚠️ MONGODB CONNECTION ERROR:', err.message);
+        cached.promise = null;
+        cached.conn = null;
+        return null;
+      });
   }
 
   try {
@@ -46,9 +55,8 @@ const connectDB = async () => {
     return cached.conn;
   } catch (err) {
     cached.promise = null;
-    if (process.env.NODE_ENV !== 'production') {
-      console.error('⚠️ MONGODB CONNECTION ERROR:', err.message);
-    }
+    cached.conn = null;
+    console.error('⚠️ MONGODB RESOLUTION ERROR:', err.message);
     return null;
   }
 };
@@ -60,4 +68,3 @@ const isDbConnected = () => {
 module.exports = connectDB;
 module.exports.connectDB = connectDB;
 module.exports.isDbConnected = isDbConnected;
-

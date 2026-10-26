@@ -70,8 +70,8 @@ Portfolio/
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/user/anti-gravity-portfolio.git
-cd anti-gravity-portfolio
+git clone https://github.com/anuragsahu0/anuragsahu-portfolio.git
+cd anuragsahu-portfolio
 
 # 2. Install dependencies
 npm install
@@ -107,7 +107,7 @@ The application will be served at `http://localhost:3000`.
 Copy `.env.example` to `.env.local` to define local environment configuration:
 
 ```env
-VITE_APP_TITLE="Anti Gravity Portfolio"
+VITE_APP_TITLE="Anurag Sahu Portfolio"
 VITE_API_BASE_URL="https://api.domain.com"
 VITE_ENABLE_ANALYTICS=false
 ```

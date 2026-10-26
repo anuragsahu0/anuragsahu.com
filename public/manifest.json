@@ -1,12 +1,13 @@
 {
-  "name": "Anurag Sahu Control Center",
-  "short_name": "AS Admin",
-  "description": "Anurag Sahu Admin Command Center for Portfolio CMS & Recruiter Messages",
-  "start_url": "/admin.html",
+  "name": "Anurag Sahu — Portfolio",
+  "short_name": "Anurag Sahu",
+  "description": "Full-Stack Web Developer & AI/ML Engineer Portfolio. Interactive case studies, engineering laboratory, and system architectures.",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#050811",
-  "theme_color": "#050811",
+  "background_color": "#0C0C0C",
+  "theme_color": "#0C0C0C",
   "icons": [
     {
       "src": "/assets/anurag-portrait-sm.webp",

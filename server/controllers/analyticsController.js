@@ -175,7 +175,7 @@ function saveVisitorHistoryToDisk() {
  */
 function hashIp(rawIp) {
   if (!rawIp || typeof rawIp !== 'string') return 'anonymous-hash';
-  const salt = process.env.IP_SALT || 'anti-gravity-privacy-salt-2026';
+  const salt = process.env.IP_SALT || 'anuragsahu-privacy-salt-2026';
   return crypto.createHash('sha256').update(rawIp.trim() + salt).digest('hex').substring(0, 16);
 }
 

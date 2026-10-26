@@ -116,7 +116,7 @@
     }
 
     /* ========================================================================= */
-    /* 3D SCI-FI HUD & ANTI-GRAVITY FLOATING MECHANICS                           */
+    /* 3D SCI-FI HUD & FLOATING MECHANICS                           */
     /* ========================================================================= */
     .hud-stage {
       perspective: 1400px;
@@ -127,7 +127,7 @@
       transform-style: preserve-3d;
     }
 
-    /* Continuous Asynchronous Anti-Gravity Levitation */
+    /* Continuous Asynchronous Smooth Levitation */
     @keyframes antiGravCenter {
       0%, 100% {
         transform: translateZ(55px) translateY(0px) rotateX(0deg) rotateY(0deg);
@@ -772,7 +772,7 @@
         {
           id: 'ai-finance-controller',
           title: 'AI Finance Controller',
-          tagline: 'Autonomous enterprise financial operations platform with multi-source ingestion & Finance Copilot.',
+          tagline: 'Autonomous enterprise financial operations platform with multi-source ingestion & Finance Intelligence.',
           category: 'AI & Fintech',
           status: 'Completed',
           techStack: ['React 18', 'Node.js', 'Express', 'Tailwind CSS', 'FastAPI', 'PyTorch'],
@@ -1189,8 +1189,13 @@
 
       try {
         const storedTotal = localStorage.getItem('as_total_all_time_visitors') || '1420';
+        const token = sessionStorage.getItem('as_admin_jwt');
         const res = await fetch('/api/analytics/realtime?clientTotal=' + encodeURIComponent(storedTotal), {
-          headers: { 'Accept': 'application/json' },
+          headers: {
+            'Accept': 'application/json',
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+          },
+          credentials: 'include',
           cache: 'no-store'
         });
 
@@ -1765,7 +1770,12 @@
         localStorage.removeItem(IP_PERMANENT_VAULT_KEY);
         cachedIpLogs = [];
         renderIpRegistryTable([]);
-        fetch('/api/admin/analytics/ip-logs', { method: 'DELETE' }).catch(() => {});
+        const token = sessionStorage.getItem('as_admin_jwt');
+        fetch('/api/admin/analytics/ip-logs', {
+          method: 'DELETE',
+          headers: { ...(token ? { 'Authorization': `Bearer ${token}` } : {}) },
+          credentials: 'include'
+        }).catch(() => {});
         showToast('Local visitor history vault cleared.', 'info');
       }
     }
@@ -2219,7 +2229,7 @@
           'admin'
         ];
         const validOwnerPasswords = [
-          'Admin@AntiGravity2026',
+          'Admin@AnuragSahu2026',
           'AnuragSahu@2026#Launch',
           'ABCDEF123'
         ];

@@ -79,7 +79,7 @@ export const RootLayoutContent = () => {
 
       {/* Global Telemetry Footer */}
       <footer className="border-t border-white/10 py-6 text-center text-xs font-mono text-dim flex flex-col sm:flex-row items-center justify-between max-w-6xl mx-auto px-4 gap-2">
-        <span>&copy; 2026 {SITE_CONFIG.name}. Built with Full-Stack Precision & Anti-Gravity Physics.</span>
+        <span>&copy; 2026 {SITE_CONFIG.name}. Built with Full-Stack Engineering &amp; Modern Interactive WebGL.</span>
         <a href={`mailto:${SITE_CONFIG.email}`} className="text-nebula-cyan hover:underline font-semibold">
           {SITE_CONFIG.email}
         </a>

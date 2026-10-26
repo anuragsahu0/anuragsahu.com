@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Three.js / R3F Background Scene Component Placeholder
- * Modular integration spot for 3D anti-gravity particle fields, shaders, and geometry.
+ * Modular integration spot for 3D interactive particle fields, shaders, and geometry.
  */
 export const BackgroundScene = () => {
   return (

@@ -5,7 +5,7 @@
 
 services:
   - type: web
-    name: anti-gravity-backend
+    name: anuragsahu-backend
     env: node
     buildCommand: cd server && npm install
     startCommand: cd server && npm start

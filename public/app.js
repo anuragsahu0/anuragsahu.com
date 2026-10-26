@@ -1,6 +1,6 @@
 /**
- * ANTI GRAVITY PORTFOLIO — STANDALONE INTERACTIVE ENGINE
- * Candidate: Anurag Sahu
+ * ANURAG SAHU PORTFOLIO — STANDALONE INTERACTIVE ENGINE
+ * Author: Anurag Sahu
  */
 
 const SERVER_HOST = window.location.hostname || 'localhost';
@@ -67,70 +67,121 @@ function initLiveTelemetryTracking() {
 }
 
 let cachedDeviceModel = null;
+window.__userGpsLocation = null;
+
+function getGpuRenderer() {
+  try {
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) return '';
+    const ext = gl.getExtension('WEBGL_debug_renderer_info');
+    if (!ext) return '';
+    const raw = gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) || '';
+    const match = raw.match(/Renderer:\s*([^,)]+)/i) || raw.match(/\(([^,)]+)\)/);
+    return match ? match[1].trim() : raw.replace(/ANGLE\s*\(/i, '').replace(/\)/g, '').trim();
+  } catch (e) {
+    return '';
+  }
+}
 
 function detectVisitorDevice() {
-  if (cachedDeviceModel) return cachedDeviceModel;
+  if (cachedDeviceModel && cachedDeviceModel.isComplete) return cachedDeviceModel;
   const ua = navigator.userAgent || '';
+  const gpu = getGpuRenderer();
   let model = '';
 
+  const w = window.screen ? window.screen.width : 0;
+  const h = window.screen ? window.screen.height : 0;
+  const dpr = window.devicePixelRatio || 1;
+  const maxD = Math.max(w, h);
+  const minD = Math.min(w, h);
+
   if (/iPhone/i.test(ua)) {
-    const w = window.screen ? window.screen.width : 0;
-    const h = window.screen ? window.screen.height : 0;
-    const maxD = Math.max(w, h);
-    const minD = Math.min(w, h);
-    if (minD === 430 && maxD === 932) model = 'iPhone 15/16 Pro Max';
-    else if (minD === 393 && maxD === 852) model = 'iPhone 15/16 Pro';
-    else if (minD === 428 && maxD === 926) model = 'iPhone 14 Plus / 13 Pro Max';
-    else if (minD === 390 && maxD === 844) model = 'iPhone 14 / 13 / 12';
-    else if (minD === 414 && maxD === 896) model = 'iPhone 11 / XR';
-    else if (minD === 375 && maxD === 812) model = 'iPhone 11 Pro / X / XS';
-    else if (minD === 375 && maxD === 667) model = 'iPhone SE / 8';
-    else model = 'Apple iPhone';
+    if (minD === 440 && maxD === 956) model = 'iPhone 16 Pro Max';
+    else if (minD === 402 && maxD === 874) model = 'iPhone 16 Pro';
+    else if (minD === 430 && maxD === 932) {
+      model = gpu.includes('A17') ? 'iPhone 15 Pro Max' : 'iPhone 14 Pro Max / 15 Plus';
+    } else if (minD === 393 && maxD === 852) {
+      model = gpu.includes('A17') ? 'iPhone 15 Pro' : 'iPhone 15 / 14 Pro';
+    } else if (minD === 428 && maxD === 926) {
+      model = 'iPhone 14 Plus / 13 Pro Max';
+    } else if (minD === 390 && maxD === 844) {
+      model = 'iPhone 14 / 13 / 13 Pro / 12 / 12 Pro';
+    } else if (minD === 414 && maxD === 896) {
+      model = dpr >= 3 ? 'iPhone 11 Pro Max / XS Max' : 'iPhone 11 / XR';
+    } else if (minD === 375 && maxD === 812) {
+      model = 'iPhone 11 Pro / XS / X / 13 mini';
+    } else if (minD === 375 && maxD === 667) {
+      model = 'iPhone SE (3rd/2nd Gen) / 8';
+    } else {
+      model = 'Apple iPhone';
+    }
 
     const iosMatch = ua.match(/OS (\d+[_.]\d+)/);
-    const iosVer = iosMatch ? ' iOS ' + iosMatch[1].replace('_', '.') : '';
-    model = `${model} (${iosVer.trim() || 'iOS'})`;
-  } else if (/iPad/i.test(ua)) {
-    model = 'Apple iPad (iPadOS)';
+    const iosVer = iosMatch ? 'iOS ' + iosMatch[1].replace(/_/g, '.') : 'iOS';
+    model = `${model} [${iosVer}${gpu ? `, ${gpu}` : ''}]`;
+  } else if (/iPad/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+    model = `Apple iPad [iPadOS${gpu ? `, ${gpu}` : ''}]`;
   } else if (/Android/i.test(ua)) {
     const androidMatch = ua.match(/Android\s+([0-9.]+)?;\s*([^;)]+)/i);
-    let modelStr = '';
+    let rawModel = '';
     let androidVer = '';
     if (androidMatch) {
       androidVer = androidMatch[1] ? `Android ${androidMatch[1]}` : 'Android';
-      modelStr = androidMatch[2] ? androidMatch[2].split('Build')[0].trim() : '';
+      rawModel = androidMatch[2] ? androidMatch[2].split('Build')[0].trim() : '';
     }
-    if (/SM-[A-Z0-9]+/i.test(modelStr)) model = 'Samsung Galaxy ' + modelStr;
-    else if (/Pixel/i.test(modelStr)) model = 'Google ' + modelStr;
-    else if (/OnePlus|CPH/i.test(modelStr)) model = 'OnePlus ' + modelStr;
-    else if (/Redmi|POCO|Xiaomi/i.test(modelStr)) model = 'Xiaomi/Redmi ' + modelStr;
-    else if (/vivo|V2/i.test(modelStr)) model = 'Vivo ' + modelStr;
-    else if (/RMX/i.test(modelStr)) model = 'Realme ' + modelStr;
-    else model = modelStr || 'Android Mobile';
-    model = `${model} (${androidVer})`;
+
+    let friendlyName = rawModel;
+    if (/SM-S928/i.test(rawModel)) friendlyName = 'Samsung Galaxy S24 Ultra';
+    else if (/SM-S926/i.test(rawModel)) friendlyName = 'Samsung Galaxy S24+';
+    else if (/SM-S921/i.test(rawModel)) friendlyName = 'Samsung Galaxy S24';
+    else if (/SM-S918/i.test(rawModel)) friendlyName = 'Samsung Galaxy S23 Ultra';
+    else if (/SM-S916/i.test(rawModel)) friendlyName = 'Samsung Galaxy S23+';
+    else if (/SM-S911/i.test(rawModel)) friendlyName = 'Samsung Galaxy S23';
+    else if (/SM-S908/i.test(rawModel)) friendlyName = 'Samsung Galaxy S22 Ultra';
+    else if (/SM-G998/i.test(rawModel)) friendlyName = 'Samsung Galaxy S21 Ultra';
+    else if (/SM-A[0-9]{3}/i.test(rawModel)) friendlyName = `Samsung Galaxy ${rawModel}`;
+    else if (/Pixel 9 Pro/i.test(rawModel)) friendlyName = 'Google Pixel 9 Pro';
+    else if (/Pixel 9/i.test(rawModel)) friendlyName = 'Google Pixel 9';
+    else if (/Pixel 8 Pro/i.test(rawModel)) friendlyName = 'Google Pixel 8 Pro';
+    else if (/Pixel 8/i.test(rawModel)) friendlyName = 'Google Pixel 8';
+    else if (/Pixel 7/i.test(rawModel)) friendlyName = 'Google Pixel 7';
+    else if (/CPH2[0-9]{3}/i.test(rawModel)) friendlyName = `OnePlus / Oppo (${rawModel})`;
+    else if (/2[234][0-9]{2}P[A-Z0-9]+/i.test(rawModel)) friendlyName = `Xiaomi / POCO (${rawModel})`;
+
+    model = `${friendlyName || 'Android Mobile'} [${androidVer}${gpu ? `, ${gpu}` : ''}]`;
   } else if (/Macintosh|Mac OS X/i.test(ua)) {
     const macMatch = ua.match(/Mac OS X (\d+[._]\d+)/);
-    const macVer = macMatch ? ' macOS ' + macMatch[1].replace(/_/g, '.') : '';
-    model = `MacBook / Mac (${macVer.trim() || 'macOS'})`;
+    const macVer = macMatch ? 'macOS ' + macMatch[1].replace(/_/g, '.') : 'macOS';
+    const chip = gpu ? (gpu.startsWith('Apple') ? gpu : `Apple ${gpu}`) : 'Apple Silicon';
+    
+    // Distinguish MacBook Air vs MacBook Pro vs iMac vs Mac Studio based on screen resolution and aspect ratio
+    let macType = 'Apple Mac';
+    if ((minD >= 800 && minD <= 960 && maxD >= 1200 && maxD <= 1500) || (minD === 832 && maxD === 1280) || (minD === 956 && maxD === 1470) || (minD === 900 && maxD === 1440)) {
+      macType = 'Apple MacBook Air';
+    } else if ((minD >= 960 && minD <= 1120 && maxD >= 1500 && maxD <= 1750) || (minD === 982 && maxD === 1512) || (minD === 1117 && maxD === 1728) || (minD === 1050 && maxD === 1680)) {
+      macType = 'Apple MacBook Pro';
+    } else if (minD >= 1150 && maxD >= 1920) {
+      macType = 'Apple iMac / Mac Display';
+    } else {
+      macType = 'Apple MacBook';
+    }
+    
+    const ram = navigator.deviceMemory ? `${navigator.deviceMemory}GB RAM` : '';
+    const details = [chip, ram, macVer].filter(Boolean).join(' • ');
+    model = `${macType} [${details}]`;
   } else if (/Windows/i.test(ua)) {
     let winVer = 'Windows 11 / 10 PC';
     if (/Windows NT 6.3/i.test(ua)) winVer = 'Windows 8.1 PC';
     else if (/Windows NT 6.1/i.test(ua)) winVer = 'Windows 7 PC';
-    const arch = /WOW64|Win64|x64/i.test(ua) ? ' (64-bit)' : '';
-    model = `${winVer}${arch}`;
+    const cores = navigator.hardwareConcurrency ? `${navigator.hardwareConcurrency} Cores` : '';
+    const ram = navigator.deviceMemory ? `${navigator.deviceMemory}GB RAM` : '';
+    const hwDetails = [cores, ram, gpu].filter(Boolean).join(' • ');
+    model = `${winVer}${hwDetails ? ` [${hwDetails}]` : ''}`;
   } else if (/Linux/i.test(ua)) {
-    model = /Ubuntu/i.test(ua) ? 'Ubuntu Linux PC' : 'Linux PC';
+    model = /Ubuntu/i.test(ua) ? `Ubuntu Linux PC [${gpu || 'Standard'}]` : `Linux PC [${gpu || 'Standard'}]`;
   } else {
-    model = 'Desktop PC';
-  }
-
-  // Check client hints if available asynchronously
-  if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
-    navigator.userAgentData.getHighEntropyValues(['model']).then((hints) => {
-      if (hints && hints.model) {
-        cachedDeviceModel = { deviceModel: hints.model, label: hints.model };
-      }
-    }).catch(() => {});
+    model = `Desktop PC [${gpu || 'Standard'}]`;
   }
 
   let browser = 'Chrome';
@@ -141,10 +192,56 @@ function detectVisitorDevice() {
   cachedDeviceModel = {
     deviceModel: model,
     browser,
+    gpuRenderer: gpu,
     label: `${model} • ${browser}`,
+    isComplete: false,
   };
+
+  // High Entropy Client Hints (for Chromium Android/Desktop)
+  if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+    navigator.userAgentData.getHighEntropyValues(['model', 'platform', 'platformVersion']).then((hints) => {
+      if (hints && hints.model) {
+        let clean = hints.model;
+        if (/SM-S928/i.test(clean)) clean = 'Samsung Galaxy S24 Ultra';
+        else if (/SM-S918/i.test(clean)) clean = 'Samsung Galaxy S23 Ultra';
+        else if (/Pixel 8 Pro/i.test(clean)) clean = 'Google Pixel 8 Pro';
+        else if (/Pixel 8/i.test(clean)) clean = 'Google Pixel 8';
+        cachedDeviceModel = {
+          deviceModel: `${clean} [${gpu || 'GPU'}]`,
+          browser,
+          gpuRenderer: gpu,
+          label: `${clean} • ${browser}`,
+          isComplete: true,
+        };
+      }
+    }).catch(() => {});
+  }
+
   return cachedDeviceModel;
 }
+
+function initAccurateGeolocation() {
+  // Silent / Non-intrusive: GPS permission prompt disabled to protect recruiter UX.
+  // Geo-location is resolved unobtrusively via server-side IP lookup.
+}
+
+async function checkVpnStatus() {
+  // Passive check: never block or show alert modals to recruiters / enterprise VPN users
+}
+
+function showVpnWarningModal(data = {}) {
+  // Disabled: never block visitors or corporate recruiters
+}
+
+function dismissVpnModal() {
+  const modal = document.getElementById('vpn-warning-modal');
+  if (modal) {
+    modal.style.display = 'none';
+    modal.classList.add('hidden');
+  }
+}
+window.showVpnWarningModal = showVpnWarningModal;
+window.dismissVpnModal = dismissVpnModal;
 
 function getClientGeoHint() {
   try {
@@ -186,6 +283,7 @@ function startVisitorHeartbeat() {
             device: devInfo.label,
             deviceModel: devInfo.deviceModel,
             browser: devInfo.browser,
+            gpuRenderer: devInfo.gpuRenderer || '',
             sessId,
             ...geo,
           }
@@ -229,12 +327,15 @@ function sendTelemetry(type, metadata = {}) {
           device: devInfo.label,
           deviceModel: devInfo.deviceModel,
           browser: devInfo.browser,
+          gpuRenderer: devInfo.gpuRenderer || '',
           screen: screenInfo,
           connection: conn || 'WiFi / Mobile',
           referrer: document.referrer || '',
+          gpsLocation: window.__userGpsLocation || null,
+          hasGps: Boolean(window.__userGpsLocation?.hasGps),
         }
       })
-    }).then(res => {
+    }).then(async (res) => {
       if (res.ok) {
         try {
           const bc = new BroadcastChannel('anurag_portfolio_realtime');
@@ -760,6 +861,9 @@ function initContactForm() {
             device: devInfo.label || 'Desktop PC',
             deviceModel: devInfo.deviceModel || 'Desktop PC',
             browser: devInfo.browser || '',
+            gpuRenderer: devInfo.gpuRenderer || '',
+            gpsLocation: window.__userGpsLocation || null,
+            hasGps: Boolean(window.__userGpsLocation?.hasGps),
           }
         }),
       });
@@ -847,6 +951,46 @@ window.closeSuccessModal = function() {
     if (contactForm) contactForm.reset();
   }, 150);
 };
+
+window.openGtaModal = function() {
+  const modal = document.getElementById('gta-re-modal');
+  const card = document.getElementById('gta-re-modal-card');
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (card) {
+      card.style.transform = 'scale(0.95)';
+      card.style.opacity = '0';
+      setTimeout(() => {
+        card.style.transform = 'scale(1)';
+        card.style.opacity = '1';
+      }, 10);
+    }
+  }
+};
+
+window.closeGtaModal = function() {
+  const modal = document.getElementById('gta-re-modal');
+  const card = document.getElementById('gta-re-modal-card');
+  if (card) {
+    card.style.transform = 'scale(0.95)';
+    card.style.opacity = '0';
+  }
+  setTimeout(() => {
+    if (modal) {
+      modal.style.display = 'none';
+      modal.classList.add('hidden');
+    }
+    document.body.style.overflow = '';
+  }, 150);
+};
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (typeof window.closeGtaModal === 'function') window.closeGtaModal();
+  }
+});
 
 /* -------------------------------------------------------------------------- */
 /* Phase 8 — Live CMS & Website Integration Engine                            */
