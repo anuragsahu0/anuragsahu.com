@@ -22,53 +22,58 @@
   --color-card-border: rgba(255, 255, 255, 0.09);
   --color-card-hover-border: rgba(251, 191, 36, 0.35);
 
-  /* Semantic Text Colors (Target: <= 12 tokens) [Issue 3] */
+  /* Semantic Text Colors (Target: <= 12 tokens) [Usability Heuristic 4] */
   --color-text-white: #ffffff;
   --color-text-light: #D7E2EA;
   --color-text-muted: #94a3b8;
   --color-text-dim: #94a3b8;
-  --color-royal-gold: #fbbf24;
+  --color-accent-gold: #fbbf24;
+  --color-accent-green: #10b981;
+  --color-accent-cyan: #38bdf8;
+  --color-accent-purple: #a78bfa;
+  --color-accent-red: #ef4444;
+
+  /* Harmonized Semantic Aliases */
+  --color-starlight-white: var(--color-text-white);
+  --color-muted-text: var(--color-text-light);
+  --color-dim-text: var(--color-text-muted);
+  --color-royal-gold: var(--color-accent-gold);
   --color-deep-gold: #d97706;
   --color-pale-gold: #fef3c7;
-  --color-success-green: #10b981;
-  --color-error-red: #ef4444;
-
-  /* Legacy Aliases for Full Compatibility */
-  --color-starlight-white: #ffffff;
-  --color-muted-text: #D7E2EA;
-  --color-dim-text: #94a3b8;
-  --color-nebula-cyan: #fbbf24;
+  --color-nebula-cyan: var(--color-accent-gold);
   --color-quantum-violet: #d97706;
+  --color-success-green: var(--color-accent-green);
+  --color-error-red: var(--color-accent-red);
   --color-space-black: #0C0C0C;
   --color-void-dark: #080808;
   --color-glass-surface: rgba(18, 18, 18, 0.78);
   --color-glass-border: rgba(255, 255, 255, 0.09);
 
-  /* Standardized Typography System (3 core fonts) [Issue 1] */
+  /* Standardized Typography System (3 core fonts) [Usability Heuristic 1] */
   --font-kanit: 'Kanit', sans-serif;
   --font-display: 'Kanit', sans-serif;
   --font-heading: 'Kanit', sans-serif;
   --font-body: 'Inter', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Standardized Type Scale (9 steps) [Issue 2] */
-  --font-size-xs: 0.75rem;    /* 12px */
-  --font-size-sm: 0.875rem;   /* 14px - Issue 8 min readable threshold */
-  --font-size-base: 1rem;     /* 16px */
-  --font-size-md: 1.125rem;   /* 18px */
-  --font-size-lg: 1.25rem;    /* 20px */
-  --font-size-xl: 1.5rem;     /* 24px */
+  /* Standardized Type Scale (7 core steps) [Usability Heuristic 3] */
+  --font-size-xs: 0.75rem;    /* 12px: Badges, labels, code metadata */
+  --font-size-sm: 0.875rem;   /* 14px: Secondary copy, compact buttons */
+  --font-size-base: 1rem;     /* 16px: Primary body copy */
+  --font-size-md: 1.125rem;   /* 18px: Subheadings, card titles */
+  --font-size-lg: 1.35rem;    /* 22px: Section titles, project names */
+  --font-size-xl: 1.75rem;    /* 28px: Feature headers, modal titles */
   --font-size-2xl: clamp(1.85rem, 3.5vw, 2.25rem);
   --font-size-3xl: clamp(2.2rem, 4.5vw, 3rem);
   --font-size-display: clamp(2.5rem, 6vw, 4rem);
 
-  /* Consistent Radius Scale (6 tokens) [Issue 4] */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-card: 24px;
-  --radius-pill: 9999px;
-  --radius-circle: 50%;
+  /* Consistent Radius Scale (4 unified tokens) [Usability Heuristic 5] */
+  --radius-sm: 8px;           /* Controls, input fields, code blocks, small tags */
+  --radius-md: 16px;          /* Cards, dialog panels, interactive containers */
+  --radius-lg: 16px;          /* Alias to radius-md for backward compatibility */
+  --radius-card: 16px;        /* Standardized card radius */
+  --radius-pill: 9999px;      /* Status tags, pill CTA buttons, filter toggles */
+  --radius-circle: 50%;       /* Circular avatars, close icon buttons */
 
   /* Sizing & Transitions */
   --max-width: 1280px;
@@ -207,12 +212,12 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
   gap: 10px;
   padding: clamp(12px, 2vw, 15px) clamp(28px, 3vw, 40px);
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-kanit);
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0.04em;
-  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  font-size: var(--font-size-sm);
   color: #ffffff !important;
   text-decoration: none;
   background: linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%);
@@ -243,11 +248,11 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
   gap: 10px;
   padding: clamp(12px, 2vw, 15px) clamp(26px, 3vw, 36px);
-  border-radius: 9999px;
-  font-family: var(--font-kanit);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.02em;
   font-size: clamp(0.78rem, 1.2vw, 0.92rem);
   color: #ffffff;
   text-decoration: none;
@@ -275,7 +280,7 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--color-card-border);
-  border-radius: 20px;
+  border-radius: var(--radius-md);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: border-color var(--transition-smooth), transform var(--transition-smooth), box-shadow var(--transition-smooth);
   position: relative;
@@ -346,7 +351,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   padding: 10px clamp(1cm, 3.5vw, 48px);
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
   background-color: #0c0c0c;
   background: rgba(12, 12, 12, 0.82);
   backdrop-filter: blur(24px) saturate(180%);
@@ -375,14 +380,14 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   font-family: var(--font-kanit);
   font-weight: 800;
-  font-size: 1.15rem;
+  font-size: var(--font-size-md);
   letter-spacing: -0.01em;
   text-shadow: 0 0 16px rgba(251, 191, 36, 0.4);
   white-space: nowrap;
 }
 
 .hud-logo-glyph {
-  font-size: 1.25rem;
+  font-size: var(--font-size-lg);
   color: var(--color-royal-gold);
   filter: drop-shadow(0 0 10px var(--color-royal-gold));
 }
@@ -397,13 +402,13 @@ h1, h2, h3, h4, h5, h6 {
 .hud-nav a {
   color: var(--color-text-muted);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: var(--font-size-sm);
   font-family: var(--font-kanit);
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 6px 14px;
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
   border: 1px solid transparent;
   transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
   white-space: nowrap;
@@ -507,7 +512,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Luxury Portrait Frame with Depth */
 .hero-portrait-showcase-container .glass-panel {
   padding: 16px;
-  border-radius: 28px;
+  border-radius: var(--radius-md);
   border: 1px solid rgba(251, 191, 36, 0.35);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 45px rgba(251, 191, 36, 0.18);
 }
@@ -522,7 +527,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   cursor: pointer;
   user-select: none;
-  border-radius: 18px;
+  border-radius: var(--radius-md);
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
 }
@@ -561,7 +566,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: var(--radius-card, 24px);
+  border-radius: var(--radius-md);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -688,9 +693,9 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
   border: 1px solid var(--color-royal-gold);
   color: #ffffff;
   padding: 12px 24px;
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-kanit);
-  font-size: 0.85rem;
+  font-size: var(--font-size-sm);
   letter-spacing: 0.05em;
   z-index: 10000;
   transform: translateY(100px);
@@ -786,7 +791,7 @@ footer {
 :focus-visible {
   outline: 2px solid #fbbf24 !important;
   outline-offset: 3px !important;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -882,7 +887,7 @@ footer {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    border-radius: 9999px !important;
+    border-radius: var(--radius-pill) !important;
     background: rgba(12, 10, 14, 0.88) !important;
     backdrop-filter: blur(24px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
@@ -892,7 +897,7 @@ footer {
   }
 
   .hud-logo {
-    font-size: 0.95rem !important;
+    font-size: var(--font-size-base) !important;
     gap: 6px !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -900,7 +905,7 @@ footer {
     flex-shrink: 0 !important;
   }
   .hud-logo-glyph {
-    font-size: 1.05rem !important;
+    font-size: var(--font-size-md) !important;
   }
 
   .hud-desktop-nav,
@@ -918,7 +923,7 @@ footer {
     gap: 4px !important;
     width: 38px !important;
     height: 38px !important;
-    border-radius: 12px !important;
+    border-radius: var(--radius-sm) !important;
     background: rgba(255, 255, 255, 0.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
     cursor: pointer !important;
@@ -935,7 +940,7 @@ footer {
     width: 18px !important;
     height: 2px !important;
     background: #ffffff !important;
-    border-radius: 2px !important;
+    border-radius: var(--radius-sm) !important;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
   .hud-mobile-btn.is-active .hud-ham-bar:nth-child(1) {
@@ -967,7 +972,7 @@ footer {
     backdrop-filter: blur(28px) saturate(200%) !important;
     -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
     border: 1px solid rgba(251, 191, 36, 0.35) !important;
-    border-radius: 22px !important;
+    border-radius: var(--radius-md) !important;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.92), 0 0 35px rgba(251, 191, 36, 0.18) !important;
     padding: 10px !important;
     opacity: 0 !important;
@@ -986,11 +991,11 @@ footer {
     align-items: center !important;
     justify-content: space-between !important;
     padding: 12px 18px !important;
-    border-radius: 14px !important;
+    border-radius: var(--radius-sm) !important;
     color: #e2e8f0 !important;
     text-decoration: none !important;
     font-family: var(--font-kanit) !important;
-    font-size: 0.95rem !important;
+    font-size: var(--font-size-base) !important;
     font-weight: 600 !important;
     letter-spacing: 0.04em !important;
     text-transform: uppercase !important;
@@ -1005,7 +1010,7 @@ footer {
   .mobile-nav-dot {
     width: 6px !important;
     height: 6px !important;
-    border-radius: 50% !important;
+    border-radius: var(--radius-circle) !important;
     background: rgba(251, 191, 36, 0.35) !important;
     transition: all 0.2s ease !important;
   }
@@ -1044,10 +1049,10 @@ footer {
     align-items: center !important;
     justify-content: center !important;
     padding: 4px 12px !important;
-    border-radius: 9999px !important;
+    border-radius: var(--radius-pill) !important;
     background: rgba(6, 182, 212, 0.08) !important;
     border: 1px solid rgba(6, 182, 212, 0.28) !important;
-    font-size: 0.70rem !important;
+    font-size: var(--font-size-xs) !important;
     white-space: nowrap !important;
     margin: 0 auto !important;
     gap: 5px !important;
@@ -1077,13 +1082,13 @@ footer {
   }
   .hero-portrait-showcase-container .glass-panel {
     padding: 10px !important;
-    border-radius: 22px !important;
+    border-radius: var(--radius-md) !important;
     border-color: rgba(6, 182, 212, 0.35) !important;
     box-shadow: 0 10px 30px rgba(6, 182, 212, 0.18) !important;
   }
   .portrait-inner-frame {
     height: 235px !important;
-    border-radius: 16px !important;
+    border-radius: var(--radius-md) !important;
   }
   .hero-portrait-showcase-container div[style*="grid-template-columns: repeat(3"] {
     display: flex !important;
@@ -1097,9 +1102,9 @@ footer {
     flex: 1 1 0 !important;
     min-width: 0 !important;
     padding: 7px 4px !important;
-    font-size: 0.70rem !important;
+    font-size: var(--font-size-xs) !important;
     white-space: nowrap !important;
-    border-radius: 10px !important;
+    border-radius: var(--radius-sm) !important;
     justify-content: center !important;
     gap: 4px !important;
   }
@@ -1107,7 +1112,7 @@ footer {
   /* STEP 4: Bio / Subtitle */
   .hero-subtitle {
     order: 4 !important;
-    font-size: 0.88rem !important;
+    font-size: var(--font-size-sm) !important;
     line-height: 1.55 !important;
     color: var(--color-text-light) !important;
     text-align: center !important;
@@ -1134,14 +1139,14 @@ footer {
     max-width: 100% !important;
     min-height: 40px !important;
     padding: 8px 12px !important;
-    font-size: 0.72rem !important;
+    font-size: var(--font-size-xs) !important;
     letter-spacing: 0.08em !important;
     white-space: nowrap !important;
     justify-content: center !important;
     display: inline-flex !important;
     align-items: center !important;
     gap: 6px !important;
-    border-radius: 9999px !important;
+    border-radius: var(--radius-pill) !important;
   }
 
   /* STEP 6: Quick Facts Compact Grid */
@@ -1151,7 +1156,7 @@ footer {
     width: 100% !important;
     max-width: 100% !important;
     padding: 12px 14px !important;
-    border-radius: 18px !important;
+    border-radius: var(--radius-md) !important;
     margin-top: 4px !important;
   }
   .hero-left-column .glass-panel div[style*="repeat(auto-fit"] {
@@ -1161,7 +1166,7 @@ footer {
   }
   .hero-left-column .glass-panel div[style*="repeat(auto-fit"] > div {
     white-space: nowrap !important;
-    font-size: 0.72rem !important;
+    font-size: var(--font-size-xs) !important;
   }
 
   /* ── 3. ZERO-GAP SECTION HEADERS ── */
@@ -1252,7 +1257,7 @@ footer {
   }
   #skills > .glass-panel {
     padding: 14px !important;
-    border-radius: 20px !important;
+    border-radius: var(--radius-md) !important;
   }
   #skills div[style*="grid-template-columns: repeat(auto-fit, minmax(260px"] {
     display: grid !important;
@@ -1264,7 +1269,7 @@ footer {
   }
   .flip-card-front, .flip-card-back {
     padding: 14px !important;
-    border-radius: 16px !important;
+    border-radius: var(--radius-md) !important;
   }
 
   /* ── 6. CODING PROFILES ── */
@@ -1275,7 +1280,7 @@ footer {
   }
   #coding-profiles > .glass-panel {
     padding: 14px !important;
-    border-radius: 20px !important;
+    border-radius: var(--radius-md) !important;
   }
   #coding-profiles div[style*="grid-template-columns: repeat(auto-fit, minmax(260px"] {
     display: grid !important;
@@ -1284,7 +1289,7 @@ footer {
   }
   #coding-profiles a.glass-panel {
     padding: 14px !important;
-    border-radius: 16px !important;
+    border-radius: var(--radius-md) !important;
     gap: 12px !important;
   }
 
@@ -1298,12 +1303,12 @@ footer {
   }
   .filter-btn {
     padding: 6px 14px !important;
-    font-size: 0.75rem !important;
+    font-size: var(--font-size-xs) !important;
   }
   #roadmap .glass-panel {
     padding: 16px !important;
     margin-bottom: 14px !important;
-    border-radius: 20px !important;
+    border-radius: var(--radius-md) !important;
   }
   #roadmap .glass-panel > div:first-child {
     display: flex !important;
@@ -1313,12 +1318,12 @@ footer {
     margin-bottom: 8px !important;
   }
   #roadmap h3 {
-    font-size: 1.15rem !important;
+    font-size: var(--font-size-md) !important;
     line-height: 1.2 !important;
     margin: 0 !important;
   }
   #roadmap p {
-    font-size: 0.88rem !important;
+    font-size: var(--font-size-sm) !important;
     line-height: 1.5 !important;
     margin-bottom: 10px !important;
   }
@@ -1329,7 +1334,7 @@ footer {
   #roadmap a.btn-primary,
   #roadmap a.btn-secondary {
     padding: 8px 14px !important;
-    font-size: 0.75rem !important;
+    font-size: var(--font-size-xs) !important;
   }
 
   /* ── 8. CONTACT SECTION ── */
@@ -1345,7 +1350,7 @@ footer {
   }
   #contact .glass-panel {
     padding: 16px !important;
-    border-radius: 20px !important;
+    border-radius: var(--radius-md) !important;
   }
   #contact div[style*="grid-template-columns: repeat(3"] {
     display: flex !important;
@@ -1357,15 +1362,15 @@ footer {
     flex: 1 1 0 !important;
     min-width: 0 !important;
     padding: 8px 4px !important;
-    font-size: 0.72rem !important;
-    border-radius: 10px !important;
+    font-size: var(--font-size-xs) !important;
+    border-radius: var(--radius-sm) !important;
     justify-content: center !important;
     gap: 4px !important;
   }
   input[type="text"],
   input[type="email"],
   textarea {
-    font-size: 16px !important; /* Prevents iOS auto-zoom */
+    font-size: var(--font-size-base) !important; /* Prevents iOS auto-zoom */
     width: 100% !important;
     box-sizing: border-box !important;
   }
@@ -1373,7 +1378,7 @@ footer {
     width: 100% !important;
     min-height: 44px !important;
     justify-content: center !important;
-    border-radius: 14px !important;
+    border-radius: var(--radius-pill) !important;
   }
 
   /* ── 9. FOOTER ── */
@@ -1454,7 +1459,7 @@ footer {
     line-height: 1.18 !important;
   }
   .hero-subtitle {
-    font-size: 0.9rem !important;
+    font-size: var(--font-size-sm) !important;
     line-height: 1.5 !important;
   }
   .hero-left-column {
@@ -1462,18 +1467,18 @@ footer {
   }
   .hero-portrait-showcase-container .glass-panel {
     padding: 14px !important;
-    border-radius: 20px !important;
+    border-radius: var(--radius-md) !important;
   }
   .portrait-inner-frame {
     height: clamp(370px, 46vh, 430px) !important;
-    border-radius: 18px !important;
+    border-radius: var(--radius-md) !important;
   }
   .hero-actions {
     gap: 10px !important;
   }
   .hero-actions .btn-primary, .hero-actions .btn-secondary {
     padding: 9px 18px !important;
-    font-size: 0.82rem !important;
+    font-size: var(--font-size-sm) !important;
   }
   #aboutme {
     padding-top: 40px !important;
@@ -1582,8 +1587,31 @@ footer {
 }
 
 .btn-sm {
-  padding: 6px 14px;
+  padding: 8px 16px;
   font-size: var(--font-size-xs);
+  border-radius: var(--radius-pill);
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: var(--radius-circle);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-text-light);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-icon:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: var(--color-accent-red, #ef4444);
+  color: var(--color-accent-red, #ef4444);
 }
 
 

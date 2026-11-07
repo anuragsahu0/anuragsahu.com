@@ -9,7 +9,7 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="2.0.21">
+  <meta name="version" content="2.0.23">
 
   <!-- Primary SEO Meta Tags -->
   <title>Anurag Sahu — Full-Stack Developer & B.Tech CSE (AI & ML) Sophomore</title>
@@ -20,24 +20,24 @@
   <link rel="canonical" href="https://www.anuragsahu.com/">
 
   <!-- PWA & Favicon Link -->
-  <link rel="manifest" href="/manifest.json?v=2.0.21">
-  <link rel="apple-touch-icon" href="/assets/anurag-portrait-sm.webp?v=2.0.21">
-  <link rel="icon" type="image/webp" href="/assets/anurag-portrait-sm.webp?v=2.0.21">
+  <link rel="manifest" href="/manifest.json?v=2.0.23">
+  <link rel="apple-touch-icon" href="/assets/anurag-portrait-sm.webp?v=2.0.23">
+  <link rel="icon" type="image/webp" href="/assets/anurag-portrait-sm.webp?v=2.0.23">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.anuragsahu.com/">
   <meta property="og:title" content="Anurag Sahu — Full-Stack Developer & B.Tech CSE (AI & ML) Sophomore">
   <meta property="og:description" content="Explore Anurag Sahu's portfolio featuring full-stack web applications, Machine Learning models, interactive case studies, engineering roadmap, and laboratory.">
-  <meta property="og:image" content="https://www.anuragsahu.com/assets/anurag-portrait.webp?v=2.0.21">
+  <meta property="og:image" content="https://www.anuragsahu.com/assets/anurag-portrait.webp?v=2.0.23">
 
   <!-- Preload Critical Hero Image & Font Optimization -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="assets/anurag-portrait-sm.webp?v=2.0.21" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/anurag-portrait.webp?v=2.0.21" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
-  <link rel="preload" as="style" href="styles.css?v=2.0.21">
-  <link rel="stylesheet" href="styles.css?v=2.0.21">
+  <link rel="preload" as="image" href="assets/anurag-portrait-sm.webp?v=2.0.23" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/anurag-portrait.webp?v=2.0.23" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" as="style" href="styles.css?v=2.0.23">
+  <link rel="stylesheet" href="styles.css?v=2.0.23">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Kanit:wght@300;400;500;600;700;800;900&display=swap">
   
   <!-- Lucide Icons CDN (Deferred) -->
@@ -203,7 +203,7 @@
       position: absolute;
       width: 800px;
       height: 800px;
-      border-radius: 50%;
+      border-radius: var(--radius-circle);
       background: radial-gradient(circle, rgba(251, 191, 36, 0.25) 0%, rgba(217, 119, 6, 0.1) 50%, transparent 70%);
       pointer-events: none;
       z-index: 2;
@@ -231,11 +231,11 @@
       align-items: center;
       gap: 8px;
       padding: 6px 18px;
-      border-radius: 30px;
+      border-radius: var(--radius-pill);
       background: rgba(251, 191, 36, 0.12);
       border: 1px solid rgba(251, 191, 36, 0.4);
-      color: #fbbf24;
-      font-size: 0.75rem;
+      color: var(--color-accent-gold);
+      font-size: var(--font-size-xs);
       font-weight: 800;
       letter-spacing: 2px;
       box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
@@ -243,9 +243,9 @@
     .preloader-dot-pulse {
       width: 8px;
       height: 8px;
-      border-radius: 50%;
-      background: #fbbf24;
-      box-shadow: 0 0 12px #fbbf24;
+      border-radius: var(--radius-circle);
+      background: var(--color-accent-gold);
+      box-shadow: 0 0 12px var(--color-accent-gold);
       animation: blinkDot 1s infinite alternate;
     }
     @keyframes blinkDot {
@@ -254,10 +254,10 @@
     }
 
     .preloader-counter-huge {
-      font-family: var(--font-display, var(--font-kanit));
+      font-family: var(--font-display);
       font-size: clamp(5rem, 14vw, 9.5rem);
       font-weight: 900;
-      color: #ffffff;
+      color: var(--color-text-white);
       letter-spacing: -4px;
       line-height: 1;
       text-shadow: 0 0 40px rgba(251, 191, 36, 0.6), 0 0 80px rgba(217, 119, 6, 0.3);
@@ -267,7 +267,7 @@
     }
     .preloader-percent-symbol {
       font-size: clamp(2rem, 5vw, 3.5rem);
-      color: #fbbf24;
+      color: var(--color-accent-gold);
       margin-left: 6px;
       letter-spacing: 0;
     }
@@ -276,21 +276,21 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 0.8rem;
-      color: #d4b896;
+      font-size: var(--font-size-sm);
+      color: var(--color-text-light);
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
     .preloader-dot-sep {
-      color: #fbbf24;
+      color: var(--color-accent-gold);
     }
 
     @media (max-width: 600px) {
       .preloader-info-row {
         flex-direction: column;
         gap: 4px;
-        font-size: 0.68rem;
+        font-size: var(--font-size-xs);
         letter-spacing: 1px;
       }
       .preloader-dot-sep {
@@ -394,7 +394,7 @@
 
     <div class="hud-actions font-mono">
       <div id="red-typewriter-pill" style="display: inline-flex; align-items: center; margin-left: 12px; margin-right: 0; white-space: nowrap;">
-        <span id="red-typewriter-text" style="color: #cbd5e1; font-size: var(--font-size-sm); letter-spacing: 0.5px; font-weight: 500;" aria-live="polite">Dream | Grow | Lead</span>
+        <span id="red-typewriter-text" style="color: var(--color-text-light); font-size: var(--font-size-sm); letter-spacing: 0.5px; font-weight: 500;" aria-live="polite">Dream | Grow | Lead</span>
       </div>
     </div>
 
@@ -451,18 +451,18 @@
         <div class="hero-left-column" style="display: flex; flex-direction: column; gap: 20px;">
 
           <!-- Real-Time Availability & Timezone Pill -->
-          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35); color: #10b981; font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600; width: fit-content;">
-            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></span>
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: var(--radius-pill); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35); color: var(--color-accent-green); font-family: var(--font-mono); font-size: var(--font-size-xs); font-weight: 600; width: fit-content;">
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: var(--radius-circle); background: var(--color-accent-green); box-shadow: 0 0 10px var(--color-accent-green);"></span>
             <span>Open for Summer 2026 Internships</span>
             <span style="color: rgba(255,255,255,0.25);">|</span>
             <span style="color: var(--color-muted-text);">IST (UTC+5:30)</span>
             <span style="color: rgba(255,255,255,0.25);">|</span>
-            <span style="color: var(--color-nebula-cyan);">⚡ Reply &lt; 2h</span>
+            <span style="color: var(--color-accent-gold);">⚡ Reply &lt; 2h</span>
           </div>
 
           <div class="hero-tagline font-mono" style="font-size: var(--font-size-sm); color: var(--color-muted-text); text-transform: none; margin-bottom: 8px;">
             <span style="color: var(--color-starlight-white); font-weight: 700;">Anurag Sahu</span>
-            <span style="color: var(--color-nebula-cyan); font-weight: 700;">•</span>
+            <span style="color: var(--color-accent-gold); font-weight: 700;">•</span>
             <span>B.Tech CSE (AI & ML) 2nd Year</span>
           </div>
 
@@ -480,31 +480,31 @@
               <i data-lucide="arrow-right" style="width: 18px;" aria-hidden="true"></i>
             </a>
             <button onclick="openResumeModal()" class="btn-secondary" style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px;" aria-label="View Resume in Browser">
-              <i data-lucide="eye" style="width: 18px; color: var(--color-nebula-cyan);" aria-hidden="true"></i>
+              <i data-lucide="eye" style="width: 18px; color: var(--color-accent-gold);" aria-hidden="true"></i>
               <span>View Resume</span>
             </button>
-            <a href="assets/anurag-sahu-resume.pdf" download="Anurag_Sahu_Resume.pdf" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 14px;" aria-label="Download Resume PDF">
-              <i data-lucide="download" style="width: 16px; color: var(--color-royal-gold);" aria-hidden="true"></i>
+            <a href="assets/anurag-sahu-resume.pdf" download="Anurag_Sahu_Resume.pdf" class="btn-secondary btn-sm" aria-label="Download Resume PDF">
+              <i data-lucide="download" style="width: 16px; color: var(--color-accent-gold);" aria-hidden="true"></i>
               <span>PDF</span>
             </a>
           </div>
 
           <!-- QUICK FACTS COMPACT CARD -->
-          <div class="glass-panel" style="width: 100%; padding: 16px; background: rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.08); margin-top: 10px;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 12px; font-family: var(--font-mono); font-size: 0.75rem;">
+          <div class="glass-panel" style="width: 100%; padding: 16px; background: rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.08); margin-top: 10px; border-radius: var(--radius-md);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 12px; font-family: var(--font-mono); font-size: var(--font-size-xs);">
               <div style="display: flex; align-items: center; gap: 6px; color: var(--color-muted-text);">
-                <i data-lucide="map-pin" style="width: 14px; color: var(--color-nebula-cyan);" aria-hidden="true"></i>
+                <i data-lucide="map-pin" style="width: 14px; color: var(--color-accent-gold);" aria-hidden="true"></i>
                 <span style="color: var(--color-starlight-white); font-weight: 600;">India</span>
               </div>
               <div style="display: flex; align-items: center; gap: 6px; color: var(--color-muted-text);">
-                <i data-lucide="graduation-cap" style="width: 14px; color: var(--color-quantum-violet);" aria-hidden="true"></i>
+                <i data-lucide="graduation-cap" style="width: 14px; color: var(--color-accent-gold);" aria-hidden="true"></i>
                 <span style="color: var(--color-starlight-white); font-weight: 600;">CSE (AI & ML)</span>
               </div>
               <div style="display: flex; align-items: center; gap: 6px; color: var(--color-muted-text);">
-                <i data-lucide="code-2" style="width: 14px; color: var(--color-nebula-cyan);" aria-hidden="true"></i>
+                <i data-lucide="code-2" style="width: 14px; color: var(--color-accent-gold);" aria-hidden="true"></i>
                 <span style="color: var(--color-starlight-white); font-weight: 600;">Full-Stack</span>
               </div>
-              <div style="display: flex; align-items: center; gap: 6px; color: var(--color-quantum-violet);">
+              <div style="display: flex; align-items: center; gap: 6px; color: var(--color-accent-gold);">
                 <i data-lucide="bot" style="width: 14px;" aria-hidden="true"></i>
                 <span style="color: var(--color-starlight-white); font-weight: 600;">AI & ML</span>
               </div>
@@ -515,9 +515,9 @@
 
         <!-- RIGHT COLUMN: Main Hero Glass Portrait Showcase -->
         <div class="hero-portrait-showcase-container">
-          <div class="glass-panel glass-spotlight" style="padding: 20px; border-radius: 28px; border-color: rgba(6,182,212,0.4); box-shadow: 0 0 50px rgba(6,182,212,0.22); position: relative;">
+          <div class="glass-panel glass-spotlight" style="padding: 20px; border-radius: var(--radius-md); border-color: rgba(6,182,212,0.4); box-shadow: 0 0 50px rgba(6,182,212,0.22); position: relative;">
             
-            <div class="portrait-inner-frame" style="width: 100%; border-radius: 22px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1); background: #070400;">
+            <div class="portrait-inner-frame" style="width: 100%; border-radius: var(--radius-md); overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1); background: #070400;">
               <picture>
                 <source srcSet="assets/anurag-portrait-sm.webp?v=2.0.0" media="(max-width: 768px)" type="image/webp">
                 <source srcSet="assets/anurag-portrait.webp?v=2.0.0" type="image/webp">
@@ -527,15 +527,15 @@
 
             <!-- Direct Contact Buttons Row Below Portrait Image (Issues 18, 19, 21) -->
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-family: var(--font-mono); font-size: var(--font-size-xs); margin-top: 14px; margin-bottom: 4px;">
-              <a href="https://github.com/anuragsahu0" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 9px 6px; justify-content: center; border-radius: var(--radius-md); font-size: var(--font-size-xs); display: inline-flex; align-items: center; gap: 6px;" aria-label="GitHub Profile">
+              <a href="https://github.com/anuragsahu0" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-sm" aria-label="GitHub Profile">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 <span>GitHub</span>
               </a>
-              <a href="https://www.linkedin.com/in/anurag-sahu-5a46b9360/" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 9px 6px; justify-content: center; border-radius: var(--radius-md); font-size: var(--font-size-xs); display: inline-flex; align-items: center; gap: 6px;" aria-label="LinkedIn Profile">
+              <a href="https://www.linkedin.com/in/anurag-sahu-5a46b9360/" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-sm" aria-label="LinkedIn Profile">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 <span>LinkedIn</span>
               </a>
-              <button onclick="copyEmail()" class="btn-secondary" style="padding: 9px 6px; justify-content: center; border-radius: var(--radius-md); font-size: var(--font-size-xs); display: inline-flex; align-items: center; gap: 6px;" aria-label="Copy Direct Email Address">
+              <button onclick="copyEmail()" class="btn-secondary btn-sm" aria-label="Copy Direct Email Address">
                 <i data-lucide="copy" style="width: 14px;" aria-hidden="true"></i>
                 <span>Copy Email</span>
               </button>
@@ -674,7 +674,7 @@
           <h2
             id="about-heading"
             style="
-              font-family: 'Kanit', sans-serif;
+              font-family: var(--font-display);
               font-weight: 900;
               text-transform: uppercase;
               line-height: 1;
@@ -696,9 +696,9 @@
           <p
             id="about-char-para"
             style="
-              font-family: 'Kanit', sans-serif;
+              font-family: var(--font-display);
               font-weight: 500;
-              color: #D7E2EA;
+              color: var(--color-text-secondary);
               text-align: center;
               line-height: 1.7;
               max-width: 560px;
@@ -718,7 +718,7 @@
           <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: -20px; font-family: var(--font-mono); font-size: var(--font-size-sm);">
             <span class="tag-mini" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);">🎓 B.Tech CSE (AI & ML) Sophomore</span>
             <span class="tag-mini" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);">🏛️ Maharana Pratap Institute</span>
-            <span class="tag-mini" style="background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.35); color: #10b981; font-weight: 700;">🚀 Open to Summer 2026 Internships</span>
+            <span class="tag-mini" style="background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.35); color: var(--color-accent-green); font-weight: 700;">🚀 Open to Summer 2026 Internships</span>
           </div>
 
         <!-- Group 2: Contact Button -->
@@ -733,21 +733,18 @@
           <a
             href="#contact"
             id="about-contact-btn"
+            class="btn-primary"
             style="
               display: inline-block;
               padding: clamp(12px,2.5vw,16px) clamp(32px,4vw,48px);
-              border-radius: 9999px;
-              font-family: 'Kanit', sans-serif;
+              border-radius: var(--radius-pill);
+              font-family: var(--font-display);
               font-weight: 500;
-              text-transform: uppercase;
-              letter-spacing: 0.18em;
+              text-transform: none;
+              letter-spacing: 0.04em;
               font-size: clamp(0.75rem, 1.5vw, 1rem);
               color: #ffffff;
               text-decoration: none;
-              background: linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%);
-              box-shadow: 0px 4px 4px rgba(181,1,167,0.25), 4px 4px 12px #7721B1 inset;
-              outline: 2px solid #E3E3E3;
-              outline-offset: -3px;
               transition: opacity 0.2s ease;
               cursor: pointer;
             "
@@ -826,7 +823,7 @@
     <section id="skills" aria-label="Engineering Laboratory">
       <div class="section-header">
         <h2 class="section-title hero-heading">My Working Lab</h2>
-        <p style="color: var(--color-text-muted); max-width: 650px; margin: 0 auto; font-size: 0.95rem;">
+        <p style="color: var(--color-text-muted); max-width: 650px; margin: 0 auto; font-size: var(--font-size-sm);">
           Tap any card below to flip and inspect full tech stack.
         </p>
       </div>
@@ -837,18 +834,18 @@
           <!-- 3D Flip Card 1: Frontend Web -->
           <div class="flip-card" tabindex="0" role="button" aria-expanded="false" aria-label="Frontend Web Card, click to flip" onclick="this.querySelector('.flip-card-inner').classList.toggle('flipped'); this.setAttribute('aria-expanded', this.querySelector('.flip-card-inner').classList.contains('flipped'));">
             <div class="flip-card-inner">
-              <div class="flip-card-front" style="border: 1px solid rgba(6,182,212,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(6,182,212,0.1);">
+              <div class="flip-card-front" style="border-radius: var(--radius-md); border: 1px solid rgba(56,189,248,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(56,189,248,0.1);">
                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                  <i data-lucide="layout" style="width: 30px; height: 30px; color: var(--color-nebula-cyan);" aria-hidden="true"></i>
-                  <span class="font-mono" style="padding: 4px 10px; border-radius: 9999px; background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.4); color: var(--color-nebula-cyan); font-size: var(--font-size-xs); font-weight: 700;">TAP TO FLIP 🔄</span>
+                  <i data-lucide="layout" style="width: 30px; height: 30px; color: var(--color-accent-cyan);" aria-hidden="true"></i>
+                  <span class="font-mono" style="padding: 4px 10px; border-radius: var(--radius-pill); background: rgba(56,189,248,0.15); border: 1px solid rgba(56,189,248,0.4); color: var(--color-accent-cyan); font-size: var(--font-size-xs); font-weight: 700;">TAP TO FLIP 🔄</span>
                 </div>
                 <div class="flip-card-text-block">
                   <h3 class="font-display" style="font-size: var(--font-size-md); font-weight: 700; color: #ffffff; margin: 0 0 4px 0;">Frontend Web</h3>
                   <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.45;">React, HTML5, CSS3, Tailwind, JavaScript ES6+</p>
                 </div>
               </div>
-              <div class="flip-card-back" style="border: 1px solid rgba(6,182,212,0.7); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 25px rgba(6,182,212,0.2);">
-                <h3 class="font-display" style="font-size: 0.95rem; font-weight: 700; color: var(--color-nebula-cyan); margin: 0 0 8px 0;">Frontend Tech Stack</h3>
+              <div class="flip-card-back" style="border-radius: var(--radius-md); border: 1px solid rgba(56,189,248,0.7); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 25px rgba(56,189,248,0.2);">
+                <h3 class="font-display" style="font-size: var(--font-size-sm); font-weight: 700; color: var(--color-accent-cyan); margin: 0 0 8px 0;">Frontend Tech Stack</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: var(--font-mono); font-size: var(--font-size-xs);">
                   <span style="padding: 4px 8px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;">React 18</span>
                   <span style="padding: 4px 8px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;">JavaScript ES6+</span>
@@ -863,18 +860,18 @@
           <!-- 3D Flip Card 2: Backend & APIs -->
           <div class="flip-card" tabindex="0" role="button" aria-expanded="false" aria-label="Backend and APIs Card, click to flip" onclick="this.querySelector('.flip-card-inner').classList.toggle('flipped'); this.setAttribute('aria-expanded', this.querySelector('.flip-card-inner').classList.contains('flipped'));">
             <div class="flip-card-inner">
-              <div class="flip-card-front" style="border: 1px solid rgba(139,92,246,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(139,92,246,0.1);">
+              <div class="flip-card-front" style="border-radius: var(--radius-md); border: 1px solid rgba(167,139,250,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(167,139,250,0.1);">
                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                  <i data-lucide="server" style="width: 30px; height: 30px; color: var(--color-quantum-violet);" aria-hidden="true"></i>
-                  <span class="font-mono" style="padding: 4px 10px; border-radius: 9999px; background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.4); color: var(--color-quantum-violet); font-size: var(--font-size-xs); font-weight: 700;">TAP TO FLIP 🔄</span>
+                  <i data-lucide="server" style="width: 30px; height: 30px; color: var(--color-accent-purple);" aria-hidden="true"></i>
+                  <span class="font-mono" style="padding: 4px 10px; border-radius: var(--radius-pill); background: rgba(167,139,250,0.15); border: 1px solid rgba(167,139,250,0.4); color: var(--color-accent-purple); font-size: var(--font-size-xs); font-weight: 700;">TAP TO FLIP 🔄</span>
                 </div>
                 <div class="flip-card-text-block">
                   <h3 class="font-display" style="font-size: var(--font-size-md); font-weight: 700; color: #ffffff; margin: 0 0 4px 0;">Backend & APIs</h3>
                   <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.45;">Node.js, Express.js, REST Architecture, JWT</p>
                 </div>
               </div>
-              <div class="flip-card-back" style="border: 1px solid rgba(139,92,246,0.7); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 25px rgba(139,92,246,0.2);">
-                <h3 class="font-display" style="font-size: 0.95rem; font-weight: 700; color: var(--color-quantum-violet); margin: 0 0 8px 0;">Backend Architecture</h3>
+              <div class="flip-card-back" style="border-radius: var(--radius-md); border: 1px solid rgba(167,139,250,0.7); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 25px rgba(167,139,250,0.2);">
+                <h3 class="font-display" style="font-size: var(--font-size-sm); font-weight: 700; color: var(--color-accent-purple); margin: 0 0 8px 0;">Backend Architecture</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: var(--font-mono); font-size: var(--font-size-xs);">
                   <span style="padding: 4px 8px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;">Node.js</span>
                   <span style="padding: 4px 8px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;">Express REST API</span>
@@ -889,18 +886,18 @@
           <!-- 3D Flip Card 3: AI & Machine Learning -->
           <div class="flip-card" tabindex="0" role="button" aria-expanded="false" aria-label="AI and Machine Learning Card, click to flip" onclick="this.querySelector('.flip-card-inner').classList.toggle('flipped'); this.setAttribute('aria-expanded', this.querySelector('.flip-card-inner').classList.contains('flipped'));">
             <div class="flip-card-inner">
-              <div class="flip-card-front" style="border: 1px solid rgba(16,185,129,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(16,185,129,0.1);">
+              <div class="flip-card-front" style="border-radius: var(--radius-md); border: 1px solid rgba(16,185,129,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(16,185,129,0.1);">
                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                  <i data-lucide="cpu" style="width: 30px; height: 30px; color: #10b981;" aria-hidden="true"></i>
-                  <span class="font-mono" style="padding: 4px 10px; border-radius: 9999px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4); color: #10b981; font-size: var(--font-size-xs); font-weight: 700;">TAP TO FLIP 🔄</span>
+                  <i data-lucide="cpu" style="width: 30px; height: 30px; color: var(--color-accent-green);" aria-hidden="true"></i>
+                  <span class="font-mono" style="padding: 4px 10px; border-radius: var(--radius-pill); background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4); color: var(--color-accent-green); font-size: var(--font-size-xs); font-weight: 700;">TAP TO FLIP 🔄</span>
                 </div>
                 <div class="flip-card-text-block">
                   <h3 class="font-display" style="font-size: var(--font-size-md); font-weight: 700; color: #ffffff; margin: 0 0 4px 0;">AI & ML</h3>
                   <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.45;">Python, NumPy, Pandas, Scikit-Learn</p>
                 </div>
               </div>
-              <div class="flip-card-back" style="border: 1px solid rgba(16,185,129,0.7); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 25px rgba(16,185,129,0.2);">
-                <h3 class="font-display" style="font-size: 0.95rem; font-weight: 700; color: #10b981; margin: 0 0 8px 0;">AI & Machine Learning</h3>
+              <div class="flip-card-back" style="border-radius: var(--radius-md); border: 1px solid rgba(16,185,129,0.7); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 25px rgba(16,185,129,0.2);">
+                <h3 class="font-display" style="font-size: var(--font-size-sm); font-weight: 700; color: var(--color-accent-green); margin: 0 0 8px 0;">AI & Machine Learning</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: var(--font-mono); font-size: var(--font-size-xs);">
                   <span style="padding: 4px 8px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;">Python 3.12</span>
                   <span style="padding: 4px 8px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;">Pandas & NumPy</span>
@@ -915,18 +912,18 @@
           <!-- 3D Flip Card 4: Databases -->
           <div class="flip-card" tabindex="0" role="button" aria-expanded="false" aria-label="Databases Card, click to flip" onclick="this.querySelector('.flip-card-inner').classList.toggle('flipped'); this.setAttribute('aria-expanded', this.querySelector('.flip-card-inner').classList.contains('flipped'));">
             <div class="flip-card-inner">
-              <div class="flip-card-front" style="border: 1px solid rgba(245,158,11,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(245,158,11,0.1);">
+              <div class="flip-card-front" style="border-radius: var(--radius-md); border: 1px solid rgba(245,158,11,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(245,158,11,0.1);">
                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                  <i data-lucide="database" style="width: 30px; height: 30px; color: #f59e0b;" aria-hidden="true"></i>
-                  <span class="font-mono" style="padding: 4px 10px; border-radius: 9999px; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4); color: #f59e0b; font-size: var(--font-size-xs); font-weight: 700;">TAP TO FLIP 🔄</span>
+                  <i data-lucide="database" style="width: 30px; height: 30px; color: var(--color-accent-gold);" aria-hidden="true"></i>
+                  <span class="font-mono" style="padding: 4px 10px; border-radius: var(--radius-pill); background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4); color: var(--color-accent-gold); font-size: var(--font-size-xs); font-weight: 700;">TAP TO FLIP 🔄</span>
                 </div>
                 <div class="flip-card-text-block">
                   <h3 class="font-display" style="font-size: var(--font-size-md); font-weight: 700; color: #ffffff; margin: 0 0 4px 0;">Databases</h3>
                   <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.45;">MongoDB, Mongoose, PostgreSQL</p>
                 </div>
               </div>
-              <div class="flip-card-back" style="border: 1px solid rgba(245,158,11,0.7); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 25px rgba(245,158,11,0.2);">
-                <h3 class="font-display" style="font-size: 0.95rem; font-weight: 700; color: #f59e0b; margin: 0 0 8px 0;">Database Engineering</h3>
+              <div class="flip-card-back" style="border-radius: var(--radius-md); border: 1px solid rgba(245,158,11,0.7); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 25px rgba(245,158,11,0.2);">
+                <h3 class="font-display" style="font-size: var(--font-size-sm); font-weight: 700; color: var(--color-accent-gold); margin: 0 0 8px 0;">Database Engineering</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: var(--font-mono); font-size: var(--font-size-xs);">
                   <span style="padding: 4px 8px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;">MongoDB Atlas</span>
                   <span style="padding: 4px 8px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;">Mongoose ODM</span>
@@ -941,18 +938,18 @@
           <!-- 3D Flip Card 5: Mobile Apps -->
           <div class="flip-card" tabindex="0" role="button" aria-expanded="false" aria-label="Mobile Apps Card, click to flip" onclick="this.querySelector('.flip-card-inner').classList.toggle('flipped'); this.setAttribute('aria-expanded', this.querySelector('.flip-card-inner').classList.contains('flipped'));">
             <div class="flip-card-inner">
-              <div class="flip-card-front" style="border: 1px solid rgba(239,68,68,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(239,68,68,0.1);">
+              <div class="flip-card-front" style="border-radius: var(--radius-md); border: 1px solid rgba(239,68,68,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(239,68,68,0.1);">
                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                  <i data-lucide="smartphone" style="width: 30px; height: 30px; color: #ef4444;" aria-hidden="true"></i>
-                  <span class="font-mono" style="padding: 4px 10px; border-radius: 9999px; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); color: #ef4444; font-size: var(--font-size-xs); font-weight: 700;">TAP TO FLIP 🔄</span>
+                  <i data-lucide="smartphone" style="width: 30px; height: 30px; color: var(--color-accent-red);" aria-hidden="true"></i>
+                  <span class="font-mono" style="padding: 4px 10px; border-radius: var(--radius-pill); background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); color: var(--color-accent-red); font-size: var(--font-size-xs); font-weight: 700;">TAP TO FLIP 🔄</span>
                 </div>
                 <div class="flip-card-text-block">
                   <h3 class="font-display" style="font-size: var(--font-size-md); font-weight: 700; color: #ffffff; margin: 0 0 4px 0;">Mobile Apps</h3>
                   <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.45;">Flutter Framework, Dart Language, Cross-Platform Android/iOS UI</p>
                 </div>
               </div>
-              <div class="flip-card-back" style="border: 1px solid rgba(239,68,68,0.7); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 25px rgba(239,68,68,0.2);">
-                <h3 class="font-display" style="font-size: 0.95rem; font-weight: 700; color: #ef4444; margin: 0 0 8px 0;">Mobile App Engine</h3>
+              <div class="flip-card-back" style="border-radius: var(--radius-md); border: 1px solid rgba(239,68,68,0.7); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 25px rgba(239,68,68,0.2);">
+                <h3 class="font-display" style="font-size: var(--font-size-sm); font-weight: 700; color: var(--color-accent-red); margin: 0 0 8px 0;">Mobile App Engine</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: var(--font-mono); font-size: var(--font-size-xs);">
                   <span style="padding: 4px 8px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;">Flutter Framework</span>
                   <span style="padding: 4px 8px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;">Dart Language</span>
@@ -972,7 +969,7 @@
     <section id="coding-profiles" aria-label="Coding Profiles Section">
       <div class="section-header">
         <h2 class="section-title hero-heading">My Coding Profiles</h2>
-        <p style="color: var(--color-muted-text); max-width: 650px; margin: 0 auto; font-size: 0.95rem;">
+        <p style="color: var(--color-muted-text); max-width: 650px; margin: 0 auto; font-size: var(--font-size-sm);">
           Track my daily problem-solving practice, contest ratings, and data structures progress across major coding platforms.
         </p>
       </div>
@@ -981,13 +978,13 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
           
           <!-- GitHub Card -->
-          <a href="https://github.com/anuragsahu0" id="github-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 18px 22px; border-radius: var(--radius-lg); display: flex; align-items: center; gap: 16px; border-color: rgba(6,182,212,0.4); background: rgba(15,23,42,0.65); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-            <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 15px rgba(6,182,212,0.25);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="#06b6d4" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <a href="https://github.com/anuragsahu0" id="github-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 18px 22px; border-radius: var(--radius-md); display: flex; align-items: center; gap: 16px; border-color: rgba(6,182,212,0.4); background: rgba(15,23,42,0.65); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
+            <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 15px rgba(6,182,212,0.25);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--color-accent-cyan)" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </div>
             <div>
-              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-nebula-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Open Source &amp; Systems</div>
-              <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">GitHub @anuragsahu0</h3>
+              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-accent-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Open Source &amp; Systems</div>
+              <h3 style="font-family: var(--font-display); font-size: var(--font-size-md); font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">GitHub @anuragsahu0</h3>
               <span class="font-mono" style="font-size: var(--font-size-xs); color: var(--color-muted-text); display: flex; align-items: center; gap: 4px;">
                 <span>15+ Repos • JavaScript, Python, C++</span>
                 <i data-lucide="external-link" style="width: 13px;" aria-hidden="true"></i>
@@ -996,13 +993,13 @@
           </a>
 
           <!-- LeetCode Card -->
-          <a href="https://leetcode.com/u/anuragsahu0/" id="leetcode-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 18px 22px; border-radius: var(--radius-lg); display: flex; align-items: center; gap: 16px; border-color: rgba(255,161,22,0.4); background: rgba(15,23,42,0.65); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-            <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(255,161,22,0.12); border: 1px solid rgba(255,161,22,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 15px rgba(255,161,22,0.25);">
-              <i data-lucide="code-2" style="width: 24px; height: 24px; color: #ffa116;" aria-hidden="true"></i>
+          <a href="https://leetcode.com/u/anuragsahu0/" id="leetcode-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 18px 22px; border-radius: var(--radius-md); display: flex; align-items: center; gap: 16px; border-color: rgba(251,191,36,0.4); background: rgba(15,23,42,0.65); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
+            <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 15px rgba(251,191,36,0.25);">
+              <i data-lucide="code-2" style="width: 24px; height: 24px; color: var(--color-accent-gold);" aria-hidden="true"></i>
             </div>
             <div>
-              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: #ffa116; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Data Structures &amp; Algorithms</div>
-              <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">LeetCode</h3>
+              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-accent-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Data Structures &amp; Algorithms</div>
+              <h3 style="font-family: var(--font-display); font-size: var(--font-size-md); font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">LeetCode</h3>
               <span class="font-mono" style="font-size: var(--font-size-xs); color: var(--color-muted-text); display: flex; align-items: center; gap: 4px;">
                 <span>Daily Practice • DP, Graphs, Trees</span>
                 <i data-lucide="external-link" style="width: 13px;" aria-hidden="true"></i>
@@ -1011,13 +1008,13 @@
           </a>
 
           <!-- GeeksforGeeks Card -->
-          <a href="https://www.geeksforgeeks.org/profile/shivasal83s" id="gfg-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 18px 22px; border-radius: var(--radius-lg); display: flex; align-items: center; gap: 16px; border-color: rgba(47,141,70,0.4); background: rgba(15,23,42,0.65); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-            <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(47,141,70,0.12); border: 1px solid rgba(47,141,70,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 15px rgba(47,141,70,0.25);">
-              <i data-lucide="award" style="width: 24px; height: 24px; color: #2f8d46;" aria-hidden="true"></i>
+          <a href="https://www.geeksforgeeks.org/profile/shivasal83s" id="gfg-link-card" target="_blank" rel="noopener noreferrer" class="glass-panel" style="padding: 18px 22px; border-radius: var(--radius-md); display: flex; align-items: center; gap: 16px; border-color: rgba(16,185,129,0.4); background: rgba(15,23,42,0.65); text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
+            <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 15px rgba(16,185,129,0.25);">
+              <i data-lucide="award" style="width: 24px; height: 24px; color: var(--color-accent-green);" aria-hidden="true"></i>
             </div>
             <div>
-              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: #2f8d46; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Core CS &amp; Foundations</div>
-              <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">GeeksforGeeks</h3>
+              <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-accent-green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Core CS &amp; Foundations</div>
+              <h3 style="font-family: var(--font-display); font-size: var(--font-size-md); font-weight: 800; color: var(--color-starlight-white); margin: 2px 0 4px 0;">GeeksforGeeks</h3>
               <span class="font-mono" style="font-size: var(--font-size-xs); color: var(--color-muted-text); display: flex; align-items: center; gap: 4px;">
                 <span>OOP, Operating Systems, DBMS</span>
                 <i data-lucide="external-link" style="width: 13px;" aria-hidden="true"></i>
@@ -1033,7 +1030,7 @@
     <section id="roadmap" aria-label="Projects Section">
       <div class="section-header">
         <h2 class="section-title hero-heading">Projects Showcase</h2>
-        <p style="color: var(--color-muted-text); max-width: 650px; margin: 0 auto; font-size: 0.95rem;">
+        <p style="color: var(--color-muted-text); max-width: 650px; margin: 0 auto; font-size: var(--font-size-sm);">
           Explore what I am building right now, planned features, and upcoming project milestones.
         </p>
 
@@ -1048,18 +1045,18 @@
       <div class="glass-panel glass-spotlight" style="padding: 32px; margin-bottom: 24px; cursor: pointer; transition: all 0.3s ease;" onclick="window.open('https://anuragsahu.com/AI-FINANCE-CONTROLLER', '_blank')">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;" class="font-mono">
           <div>
-            <span style="color: var(--color-nebula-cyan); font-weight: 700; font-size: 0.8rem;">Project 01 • Autonomous AI & FinTech</span>
+            <span style="color: var(--color-nebula-cyan); font-weight: 700; font-size: var(--font-size-xs);">Project 01 • Autonomous AI & FinTech</span>
             <div style="display: flex; align-items: center; gap: 12px; margin-top: 4px; flex-wrap: wrap;">
-              <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--color-starlight-white); margin: 0;">
+              <h3 style="font-family: var(--font-display); font-size: var(--font-size-lg); font-weight: 800; color: var(--color-starlight-white); margin: 0;">
                 AI Finance Controller
               </h3>
             </div>
           </div>
-          <span id="main-project-status-01" style="padding: 4px 12px; border-radius: 20px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #10b981; font-size: 0.75rem; font-weight: 700;">
+          <span id="main-project-status-01" style="padding: 4px 12px; border-radius: var(--radius-pill); background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--color-accent-green); font-size: var(--font-size-xs); font-weight: 700;">
             🟢 Status: Completed
           </span>
         </div>
-        <p style="color: var(--color-muted-text); font-size: 0.9rem; margin-bottom: 16px;">
+        <p style="color: var(--color-muted-text); font-size: var(--font-size-sm); margin-bottom: 16px;">
           An enterprise finance platform that automates invoice matching and tax tracking. It prevents accounting errors and spots fraud with secure approval workflows.
         </p>
         <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-starlight-white); display: flex; flex-direction: column; gap: 6px;">
@@ -1069,10 +1066,10 @@
           <div>• Finance Intelligence 2.0 with Grounded ML Forecasting &amp; Cashflow Projection</div>
         </div>
         <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;" onclick="event.stopPropagation()">
-          <a href="https://anuragsahu.com/AI-FINANCE-CONTROLLER" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: var(--font-size-xs); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none;" aria-label="Launch AI Finance Controller">
+          <a href="https://anuragsahu.com/AI-FINANCE-CONTROLLER" target="_blank" rel="noopener noreferrer" class="btn-primary btn-sm" aria-label="Launch AI Finance Controller">
             <span>🚀 Launch Live App</span>
           </a>
-          <a href="https://github.com/anuragsahu0/ai-finance-controller" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: var(--font-size-xs); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none;" aria-label="View AI Finance Controller Source Code on GitHub">
+          <a href="https://github.com/anuragsahu0/ai-finance-controller" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-sm" aria-label="View AI Finance Controller Source Code on GitHub">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>View Source</span>
           </a>
@@ -1080,31 +1077,31 @@
       </div>
 
       <!-- Project 02: Restaurant Management System -->
-      <div class="glass-panel glass-spotlight" style="padding: 32px; margin-bottom: 24px;">
+      <div class="glass-panel glass-spotlight" style="padding: 32px; margin-bottom: 24px; border-radius: var(--radius-md);">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;" class="font-mono">
           <div>
-            <span style="color: #f59e0b; font-weight: 700; font-size: 0.8rem;">Project 02 • Enterprise System</span>
-            <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--color-starlight-white); margin-top: 4px;">
+            <span style="color: var(--color-accent-gold); font-weight: 700; font-size: var(--font-size-xs);">Project 02 • Enterprise System</span>
+            <h3 style="font-family: var(--font-display); font-size: var(--font-size-lg); font-weight: 800; color: var(--color-starlight-white); margin-top: 4px;">
               Restaurant Management System
             </h3>
           </div>
-          <span id="main-project-status-02" style="padding: 4px 12px; border-radius: 20px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: #f59e0b; font-size: 0.75rem; font-weight: 700;">
+          <span id="main-project-status-02" style="padding: 4px 12px; border-radius: var(--radius-pill); background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); color: var(--color-accent-gold); font-size: var(--font-size-xs); font-weight: 700;">
             🟡 Status: Coming Soon
           </span>
         </div>
-        <p style="color: var(--color-muted-text); font-size: 0.9rem; margin-bottom: 16px;">
+        <p style="color: var(--color-muted-text); font-size: var(--font-size-sm); margin-bottom: 16px;">
           A complete platform for running restaurant operations. It tracks kitchen orders in real time, manages inventory stock, and generates digital bills.
         </p>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-muted-text); display: flex; flex-direction: column; gap: 6px;">
+        <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-muted-text); display: flex; flex-direction: column; gap: 6px;">
           <div>• JWT Authentication & Multi-Role User Access Control</div>
           <div>• Real-Time Kitchen Order Display (KDS) via WebSockets</div>
           <div>• Inventory Stock Tracking & Digital Invoice Billing Generation</div>
         </div>
         <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
-          <button onclick="openRmsArchModal()" class="btn-primary" style="font-size: var(--font-size-xs); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;" aria-label="View Restaurant Management System Architecture">
+          <button onclick="openRmsArchModal()" class="btn-primary btn-sm" aria-label="View Restaurant Management System Architecture">
             <span>🔬 View System Architecture &amp; Schemas</span>
           </button>
-          <a href="https://github.com/anuragsahu0" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: var(--font-size-xs); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none;" aria-label="GitHub Repository">
+          <a href="https://github.com/anuragsahu0" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-sm" aria-label="GitHub Repository">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub Spec</span>
           </a>
@@ -1112,31 +1109,31 @@
       </div>
 
       <!-- Project 03: Smart College ERP -->
-      <div class="glass-panel glass-spotlight" style="padding: 32px; margin-bottom: 24px;">
+      <div class="glass-panel glass-spotlight" style="padding: 32px; margin-bottom: 24px; border-radius: var(--radius-md);">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;" class="font-mono">
           <div>
-            <span style="color: #f59e0b; font-weight: 700; font-size: 0.8rem;">Project 03 • Academic ERP</span>
-            <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--color-starlight-white); margin-top: 4px;">
+            <span style="color: var(--color-accent-gold); font-weight: 700; font-size: var(--font-size-xs);">Project 03 • Academic ERP</span>
+            <h3 style="font-family: var(--font-display); font-size: var(--font-size-lg); font-weight: 800; color: var(--color-starlight-white); margin-top: 4px;">
               Smart College ERP
             </h3>
           </div>
-          <span id="main-project-status-03" style="padding: 4px 12px; border-radius: 20px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: #f59e0b; font-size: 0.75rem; font-weight: 700;">
+          <span id="main-project-status-03" style="padding: 4px 12px; border-radius: var(--radius-pill); background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); color: var(--color-accent-gold); font-size: var(--font-size-xs); font-weight: 700;">
             🟡 Status: Coming Soon
           </span>
         </div>
-        <p style="color: var(--color-muted-text); font-size: 0.9rem; margin-bottom: 16px;">
+        <p style="color: var(--color-muted-text); font-size: var(--font-size-sm); margin-bottom: 16px;">
           A unified web portal for students and faculty. It tracks class attendance, publishes exam grades, and handles online fee payments.
         </p>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-muted-text); display: flex; flex-direction: column; gap: 6px;">
+        <div style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-muted-text); display: flex; flex-direction: column; gap: 6px;">
           <div>• Multi-Role Student, Faculty & Admin Portal (RBAC)</div>
           <div>• Attendance Tracking & Automated Percentage Calculation</div>
           <div>• Online Examination Result Publishing & Digital Fee Gateway</div>
         </div>
         <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
-          <button onclick="openRmsArchModal()" class="btn-primary" style="font-size: var(--font-size-xs); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;" aria-label="View Restaurant Management System Architecture">
+          <button onclick="openRmsArchModal()" class="btn-primary btn-sm" aria-label="View Restaurant Management System Architecture">
             <span>🔬 View System Architecture &amp; Schemas</span>
           </button>
-          <a href="https://github.com/anuragsahu0" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: var(--font-size-xs); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none;" aria-label="GitHub Repository">
+          <a href="https://github.com/anuragsahu0" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-sm" aria-label="GitHub Repository">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub Spec</span>
           </a>
@@ -1159,27 +1156,28 @@
       </div>
 
       <!-- Item 01: GTA V Reverse Engineer -->
-      <div class="glass-panel glass-spotlight" style="padding: 32px; margin-bottom: 24px; transition: all 0.3s ease; position: relative;">
+      <div class="glass-panel glass-spotlight" style="padding: 32px; margin-bottom: 24px; border-radius: var(--radius-md); transition: all 0.3s ease; position: relative;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 12px;">
-          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--color-starlight-white); margin: 0;">
+          <h3 style="font-family: var(--font-display); font-size: var(--font-size-lg); font-weight: 800; color: var(--color-starlight-white); margin: 0;">
             GTA V
           </h3>
-          <span style="padding: 4px 12px; border-radius: 20px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #10b981; font-size: 0.75rem; font-weight: 700; font-family: var(--font-mono);">
+          <span style="padding: 4px 12px; border-radius: var(--radius-pill); background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--color-accent-green); font-size: var(--font-size-xs); font-weight: 700; font-family: var(--font-mono);">
             🟢 Status: Active
           </span>
         </div>
 
-        <p style="color: var(--color-muted-text); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+        <p style="color: var(--color-muted-text); font-size: var(--font-size-sm); line-height: 1.6; margin-bottom: 20px;">
           Reverse engineering and exploring the internal game engine mechanics, native function hooks, and memory architecture of GTA V.
         </p>
 
         <!-- Action Buttons -->
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <a href="/gta" target="_blank" class="btn-primary" style="font-size: var(--font-size-xs); padding: 10px 20px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;" aria-label="Play GTA V in Browser">
+          <a href="/gta" target="_blank" class="btn-primary btn-sm" aria-label="Play GTA V in Browser">
             <span>🎮 Play GTA V in Browser (WebGPU)</span>
           </a>
-          <button onclick="openGtaModal()" class="btn-secondary" style="font-size: var(--font-size-xs); padding: 10px 18px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer;" aria-label="View GTA V Architecture">
-            <span>🔬 View System Architecture</span>
+          <button onclick="openGtaModal()" class="btn-secondary btn-sm" aria-label="View GTA V System Architecture">
+            <span aria-hidden="true">🔬</span>
+            <span>View System Architecture</span>
           </button>
         </div>
       </div>
@@ -1189,7 +1187,7 @@
     <section id="contact" aria-label="Contact Section" style="padding-bottom: 60px;">
       <div class="section-header">
         <h2 class="section-title hero-heading">Let's Build Something Great Together</h2>
-        <p style="color: var(--color-muted-text); max-width: 650px; margin: 0 auto; font-size: 0.95rem;">
+        <p style="color: var(--color-muted-text); max-width: 650px; margin: 0 auto; font-size: var(--font-size-sm);">
           Open for Summer 2026 Software Engineering & AI/ML Internship opportunities. Fill out the direct form below or reach out via email, LinkedIn, or GitHub.
         </p>
       </div>
@@ -1199,22 +1197,22 @@
         <div class="glass-panel glass-spotlight" style="padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">
-              <div style="width: 64px; height: 75px; border-radius: 12px; border: 1px solid rgba(6,182,212,0.4); padding: 2px; overflow: hidden; flex-shrink: 0;">
+              <div style="width: 64px; height: 75px; border-radius: var(--radius-sm); border: 1px solid rgba(6,182,212,0.4); padding: 2px; overflow: hidden; flex-shrink: 0;">
                 <picture>
                   <source srcSet="assets/anurag-portrait-sm.webp" type="image/webp">
-                  <img src="assets/anurag-portrait-sm.jpg" alt="Professional portrait of Anurag Sahu." width="64" height="75" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                  <img src="assets/anurag-portrait-sm.jpg" alt="Professional portrait of Anurag Sahu." width="64" height="75" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
                 </picture>
               </div>
               <div>
-                <h3 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--color-starlight-white);">Anurag Sahu</h3>
-                <p class="font-mono" style="font-size: 0.8rem; color: var(--color-nebula-cyan);">Full-Stack & AI/ML Developer</p>
+                <h3 style="font-family: var(--font-display); font-size: var(--font-size-md); font-weight: 700; color: var(--color-starlight-white);">Anurag Sahu</h3>
+                <p class="font-mono" style="font-size: var(--font-size-xs); color: var(--color-nebula-cyan);">Full-Stack & AI/ML Developer</p>
               </div>
             </div>
 
             <!-- Candidate Availability & Status Summary (Issue 15) -->
             <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 14px 16px; margin: 16px 0; font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-text-muted); display: flex; flex-direction: column; gap: 8px;">
               <div style="display: flex; align-items: center; gap: 8px; color: var(--color-text-light);">
-                <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block; box-shadow: 0 0 8px #10b981;"></span>
+                <span style="width: 8px; height: 8px; border-radius: var(--radius-circle); background: var(--color-accent-green); display: inline-block; box-shadow: 0 0 8px var(--color-accent-green);"></span>
                 <strong style="color: #ffffff;">Available for Work &amp; Internships</strong>
               </div>
               <div>📍 Based in Uttar Pradesh, India (IST UTC+5:30)</div>
@@ -1249,11 +1247,11 @@
 
         <!-- Right Backend-Ready Contact Form (Issue 27) -->
         <div class="glass-panel glass-spotlight" style="padding: 32px;">
-          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--color-starlight-white); margin-bottom: 20px;">
+          <h3 style="font-family: var(--font-display); font-size: var(--font-size-md); font-weight: 700; color: var(--color-starlight-white); margin-bottom: 20px;">
             Send Direct Message
           </h3>
 
-          <form id="contact-form" style="display: flex; flex-direction: column; gap: 16px; font-family: var(--font-mono); font-size: 0.8rem;">
+          <form id="contact-form" style="display: flex; flex-direction: column; gap: 16px; font-family: var(--font-mono); font-size: var(--font-size-xs);">
             <div>
               <label for="contact-fullname" style="color: var(--color-starlight-white); font-weight: 700;">FULL NAME *</label>
               <input id="contact-fullname" type="text" required placeholder="e.g. Sarah Jenkins" style="width: 100%; padding: 12px 14px; margin-top: 6px;">
@@ -1332,21 +1330,21 @@
 
   <!-- SLEEK GLASSMORPHIC SUCCESS CONFIRMATION MODAL -->
   <div id="contact-success-modal" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);">
-    <div id="contact-success-modal-card" style="background: rgba(12, 7, 1, 0.95); padding: 28px; border-radius: 24px; max-width: 360px; width: 100%; text-align: center; border: 1px solid rgba(16, 185, 129, 0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 30px rgba(16, 185, 129, 0.2);">
-      <div style="width: 56px; height: 56px; margin: 0 auto 16px auto; border-radius: 50%; background: rgba(16, 185, 129, 0.15); border: 2px solid #10b981; display: flex; align-items: center; justify-content: center; color: #10b981; font-size: 24px; font-weight: bold;">
+    <div id="contact-success-modal-card" style="background: rgba(12, 7, 1, 0.95); padding: 28px; border-radius: var(--radius-md); max-width: 360px; width: 100%; text-align: center; border: 1px solid rgba(16, 185, 129, 0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 30px rgba(16, 185, 129, 0.2);">
+      <div style="width: 56px; height: 56px; margin: 0 auto 16px auto; border-radius: var(--radius-circle); background: rgba(16, 185, 129, 0.15); border: 2px solid var(--color-accent-green); display: flex; align-items: center; justify-content: center; color: var(--color-accent-green); font-size: var(--font-size-xl); font-weight: bold;">
         ✓
       </div>
       
       <div style="margin-bottom: 12px;">
-        <h3 style="font-family: var(--font-kanit); font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0;">Message Delivered!</h3>
-        <span style="font-size: 10px; color: #10b981; font-family: monospace; font-weight: 700;">● Team Anurag Sahu Notification Sent</span>
+        <h3 style="font-family: var(--font-display); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-starlight-white); margin: 0;">Message Delivered!</h3>
+        <span style="font-size: var(--font-size-xs); color: var(--color-accent-green); font-family: var(--font-mono); font-weight: 700;">● Team Anurag Sahu Notification Sent</span>
       </div>
 
-      <p id="contact-success-modal-msg" style="font-size: 12px; color: rgba(255,255,255,0.8); line-height: 1.6; font-family: Inter, sans-serif; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 20px;">
+      <p id="contact-success-modal-msg" style="font-size: var(--font-size-xs); color: var(--color-text-light); line-height: 1.6; font-family: var(--font-body); background: rgba(0,0,0,0.4); padding: 12px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.08); margin-bottom: 20px;">
         Thank you! Your message has been sent to Anurag Sahu. Expect a response within 24–48 hours.
       </p>
 
-      <button onclick="closeSuccessModal()" style="width: 100%; padding: 12px 0; border-radius: 14px; background: linear-gradient(135deg, #10b981 0%, #0d9488 100%); color: #ffffff; font-weight: 700; font-family: monospace; font-size: 13px; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);">
+      <button onclick="closeSuccessModal()" class="btn-primary" style="width: 100%; justify-content: center; font-size: var(--font-size-sm); border-radius: var(--radius-pill);">
         OK
       </button>
     </div>
@@ -1354,20 +1352,20 @@
 
   <!-- 1-CLICK IN-BROWSER RESUME VIEWER MODAL -->
   <div id="resume-modal" class="fixed inset-0 z-[10002] hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="position: fixed; inset: 0; z-index: 10002; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.9); backdrop-filter: blur(16px);" onclick="if(event.target === this) closeResumeModal()">
-    <div id="resume-modal-card" style="background: rgba(10, 13, 20, 0.98); border-radius: 24px; max-width: 920px; width: 100%; height: 90vh; display: flex; flex-direction: column; border: 1px solid rgba(6, 182, 212, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 45px rgba(6, 182, 212, 0.2); overflow: hidden; transition: all 0.25s ease;">
+    <div id="resume-modal-card" style="background: rgba(10, 13, 20, 0.98); border-radius: var(--radius-md); max-width: 920px; width: 100%; height: 90vh; display: flex; flex-direction: column; border: 1px solid rgba(6, 182, 212, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 45px rgba(6, 182, 212, 0.2); overflow: hidden; transition: all 0.25s ease;">
       <!-- Modal Header -->
       <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(15, 23, 42, 0.7);" class="font-mono">
         <div style="display: flex; align-items: center; gap: 10px;">
-          <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></div>
-          <span style="font-weight: 700; color: #ffffff; font-size: 0.9rem;">Anurag_Sahu_Resume.pdf</span>
-          <span style="font-size: 0.72rem; color: var(--color-nebula-cyan); background: rgba(6,182,212,0.12); padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(6,182,212,0.3);">Verified 2026</span>
+          <div style="width: 10px; height: 10px; border-radius: var(--radius-circle); background: var(--color-accent-green); box-shadow: 0 0 10px var(--color-accent-green);"></div>
+          <span style="font-weight: 700; color: #ffffff; font-size: var(--font-size-sm);">Anurag_Sahu_Resume.pdf</span>
+          <span style="font-size: var(--font-size-xs); color: var(--color-nebula-cyan); background: rgba(6,182,212,0.12); padding: 2px 8px; border-radius: var(--radius-pill); border: 1px solid rgba(6,182,212,0.3);">Verified 2026</span>
         </div>
         <div style="display: flex; align-items: center; gap: 10px;">
-          <a href="assets/anurag-sahu-resume.pdf" download="Anurag_Sahu_Resume.pdf" class="btn-primary" style="font-size: 0.75rem; padding: 7px 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+          <a href="assets/anurag-sahu-resume.pdf" download="Anurag_Sahu_Resume.pdf" class="btn-primary btn-sm" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
             <span>Download PDF</span>
           </a>
-          <button onclick="closeResumeModal()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(239,68,68,0.2)'; this.style.color='#ef4444';" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.color='#cbd5e1';" aria-label="Close Resume Modal">
+          <button onclick="closeResumeModal()" class="btn-icon" aria-label="Close Resume Modal">
             ✕
           </button>
         </div>
@@ -1377,7 +1375,7 @@
         <iframe id="resume-iframe" src="assets/anurag-sahu-resume.pdf#toolbar=0&navpanes=0" title="Anurag Sahu Resume Preview" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
       </div>
       <!-- Modal Footer -->
-      <div style="padding: 10px 20px; background: rgba(5, 8, 15, 0.9); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-muted-text);">
+      <div style="padding: 10px 20px; background: rgba(5, 8, 15, 0.9); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--color-muted-text);">
         <span>Maharana Pratap Institute of Professional Studies (AKTU) • B.Tech CSE (AI &amp; ML)</span>
         <span>Open for Summer 2026 Internships</span>
       </div>
@@ -1386,40 +1384,40 @@
 
   <!-- RESTAURANT MANAGEMENT SYSTEM ARCHITECTURE BLUEPRINT MODAL -->
   <div id="rms-arch-modal" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.9); backdrop-filter: blur(14px);" onclick="if(event.target === this) closeRmsArchModal()">
-    <div id="rms-arch-modal-card" style="background: rgba(10, 12, 18, 0.98); padding: 32px; border-radius: 24px; max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; border: 1px solid rgba(245, 158, 11, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 40px rgba(245, 158, 11, 0.2); transition: all 0.25s ease;" class="font-mono">
+    <div id="rms-arch-modal-card" style="background: rgba(10, 12, 18, 0.98); padding: 32px; border-radius: var(--radius-md); max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; border: 1px solid rgba(245, 158, 11, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 40px rgba(245, 158, 11, 0.2); transition: all 0.25s ease;" class="font-mono">
       <!-- Modal Top Bar -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px;">
         <div>
-          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); color: #f59e0b; font-size: 0.72rem; font-weight: 700; margin-bottom: 8px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: var(--radius-pill); background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); color: var(--color-accent-gold); font-size: var(--font-size-xs); font-weight: 700; margin-bottom: 8px;">
             <span>⚡ MULTI-TENANT POS • REAL-TIME KDS &amp; INVENTORY ARCHITECTURE</span>
           </div>
-          <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: #ffffff; margin: 0; line-height: 1.2;">
+          <h3 style="font-family: var(--font-display); font-size: var(--font-size-xl); font-weight: 800; color: #ffffff; margin: 0; line-height: 1.2;">
             Restaurant Management System (POS &amp; KDS)
           </h3>
-          <p style="color: var(--color-muted-text); font-size: 0.85rem; margin-top: 6px; margin-bottom: 0;">
+          <p style="color: var(--color-muted-text); font-size: var(--font-size-sm); margin-top: 6px; margin-bottom: 0;">
             A distributed event-driven restaurant operations platform with bi-directional WebSocket Kitchen Order Display (KDS), atomic stock inventory locking, and multi-role RBAC.
           </p>
         </div>
-        <button onclick="closeRmsArchModal()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(239,68,68,0.2)'; this.style.color='#ef4444';" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.color='#cbd5e1';" aria-label="Close RMS Modal">
+        <button onclick="closeRmsArchModal()" class="btn-icon" aria-label="Close RMS Modal">
           ✕
         </button>
       </div>
 
       <!-- Architecture Pipeline -->
       <div style="margin-bottom: 24px;">
-        <h4 style="color: #f59e0b; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+        <h4 style="color: var(--color-accent-gold); font-size: var(--font-size-sm); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
           <span>⚡</span> 1. Real-Time Kitchen Order Display (KDS) Event Pipeline
         </h4>
-        <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 14px; padding: 18px; font-size: 0.78rem; line-height: 1.7; color: #e2e8f0; overflow-x: auto;">
+        <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: var(--radius-sm); padding: 18px; font-size: var(--font-size-xs); line-height: 1.7; color: var(--color-text-light); overflow-x: auto;">
           <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #f59e0b; border-radius: 4px;">
-              <strong style="color: #fbbf24;">[1] Table Order Ingestion:</strong> Waiter terminal submits order payload via REST API with idempotency keys. Validates active table session and atomic menu stock.
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #f59e0b; border-radius: var(--radius-sm);">
+              <strong style="color: var(--color-accent-gold);">[1] Table Order Ingestion:</strong> Waiter terminal submits order payload via REST API with idempotency keys. Validates active table session and atomic menu stock.
             </div>
-            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #06b6d4; border-radius: 4px;">
-              <strong style="color: #38bdf8;">[2] Redis Pub/Sub Event Broadcast:</strong> Order event dispatched to Redis channel <code>kitchen:orders:station_{id}</code> with &lt;10ms delivery to kitchen display screens.
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #06b6d4; border-radius: var(--radius-sm);">
+              <strong style="color: var(--color-accent-cyan);">[2] Redis Pub/Sub Event Broadcast:</strong> Order event dispatched to Redis channel <code>kitchen:orders:station_{id}</code> with &lt;10ms delivery to kitchen display screens.
             </div>
-            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #10b981; border-radius: 4px;">
-              <strong style="color: #34d399;">[3] Bi-directional WebSocket State Machine:</strong> Kitchen chefs mark tickets as <code>PREPARING</code> ➔ <code>READY</code> ➔ <code>SERVED</code> with live sound cues broadcasted to table stewards.
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #10b981; border-radius: var(--radius-sm);">
+              <strong style="color: var(--color-accent-green);">[3] Bi-directional WebSocket State Machine:</strong> Kitchen chefs mark tickets as <code>PREPARING</code> ➔ <code>READY</code> ➔ <code>SERVED</code> with live sound cues broadcasted to table stewards.
             </div>
           </div>
         </div>
@@ -1427,25 +1425,25 @@
 
       <!-- Normalized Data Schema Blueprint -->
       <div style="margin-bottom: 24px;">
-        <h4 style="color: #f59e0b; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+        <h4 style="color: var(--color-accent-gold); font-size: var(--font-size-sm); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
           <span>⚡</span> 2. Relational / Document Schema Blueprint
         </h4>
-        <div style="background: #05070c; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px; font-size: 0.75rem; line-height: 1.6; color: #94a3b8; overflow-x: auto;">
-<pre style="margin: 0; font-family: 'JetBrains Mono', 'Fira Code', monospace;"><code style="color: #e2e8f0;"><span style="color: #64748b;">// Core Entities &amp; Relations</span>
-<span style="color: #f43f5e;">RestaurantTenant</span>: { tenantId, name, currency, taxRateGst, billingPlan, activeStatus }
-<span style="color: #f43f5e;">DiningTable</span>:      { tableId, tenantId, tableNumber, capacity, status: ['VACANT', 'OCCUPIED', 'RESERVED'] }
-<span style="color: #f43f5e;">OrderTicket</span>:      { orderId, tenantId, tableId, waiterId, items: [ { itemId, qty, modifiers } ], totalAmount, kdsStatus }
-<span style="color: #f43f5e;">InventoryItem</span>:    { itemId, tenantId, name, currentStock, reorderLevel, unitCost, autoDeductPerDish }
-<span style="color: #f43f5e;">StaffUser</span>:        { userId, tenantId, email, role: ['SUPER_ADMIN', 'MANAGER', 'CHEF', 'WAITER', 'CASHIER'], jwtHash }</code></pre>
+        <div style="background: #05070c; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-sm); padding: 18px; font-size: var(--font-size-xs); line-height: 1.6; color: var(--color-text-muted); overflow-x: auto;">
+<pre style="margin: 0; font-family: var(--font-mono);"><code style="color: var(--color-text-light);"><span style="color: var(--color-text-muted);">// Core Entities &amp; Relations</span>
+<span style="color: var(--color-accent-purple);">RestaurantTenant</span>: { tenantId, name, currency, taxRateGst, billingPlan, activeStatus }
+<span style="color: var(--color-accent-purple);">DiningTable</span>:      { tableId, tenantId, tableNumber, capacity, status: ['VACANT', 'OCCUPIED', 'RESERVED'] }
+<span style="color: var(--color-accent-purple);">OrderTicket</span>:      { orderId, tenantId, tableId, waiterId, items: [ { itemId, qty, modifiers } ], totalAmount, kdsStatus }
+<span style="color: var(--color-accent-purple);">InventoryItem</span>:    { itemId, tenantId, name, currentStock, reorderLevel, unitCost, autoDeductPerDish }
+<span style="color: var(--color-accent-purple);">StaffUser</span>:        { userId, tenantId, email, role: ['SUPER_ADMIN', 'MANAGER', 'CHEF', 'WAITER', 'CASHIER'], jwtHash }</code></pre>
         </div>
       </div>
 
       <!-- Modal Footer -->
       <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; flex-wrap: wrap; gap: 12px;">
-        <span style="font-size: 0.75rem; color: var(--color-text-muted);">
+        <span style="font-size: var(--font-size-xs); color: var(--color-text-muted);">
           ⚡ Technologies: Node.js, Express, MongoDB, Redis, WebSockets, Tailwind CSS
         </span>
-        <button onclick="closeRmsArchModal()" style="padding: 10px 24px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #ffffff; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(245, 158, 11, 0.2)'; this.style.borderColor='#f59e0b';" onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)';">
+        <button onclick="closeRmsArchModal()" class="btn-secondary btn-sm">
           Close Blueprint
         </button>
       </div>
@@ -1454,67 +1452,67 @@
 
   <!-- SMART COLLEGE ERP ARCHITECTURE BLUEPRINT MODAL -->
   <div id="erp-arch-modal" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.9); backdrop-filter: blur(14px);" onclick="if(event.target === this) closeErpArchModal()">
-    <div id="erp-arch-modal-card" style="background: rgba(10, 12, 18, 0.98); padding: 32px; border-radius: 24px; max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; border: 1px solid rgba(139, 92, 246, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 40px rgba(139, 92, 246, 0.2); transition: all 0.25s ease;" class="font-mono">
+    <div id="erp-arch-modal-card" style="background: rgba(10, 12, 18, 0.98); padding: 32px; border-radius: var(--radius-md); max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; border: 1px solid rgba(139, 92, 246, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 40px rgba(139, 92, 246, 0.2); transition: all 0.25s ease;" class="font-mono">
       <!-- Modal Top Bar -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px;">
         <div>
-          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.35); color: #a78bfa; font-size: 0.72rem; font-weight: 700; margin-bottom: 8px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: var(--radius-pill); background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.35); color: var(--color-accent-purple); font-size: var(--font-size-xs); font-weight: 700; margin-bottom: 8px;">
             <span>⚡ ACADEMIC ERP • RBAC, ATTENDANCE &amp; FEE LEDGER ENGINE</span>
           </div>
-          <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: #ffffff; margin: 0; line-height: 1.2;">
+          <h3 style="font-family: var(--font-display); font-size: var(--font-size-xl); font-weight: 800; color: #ffffff; margin: 0; line-height: 1.2;">
             Smart College ERP Platform
           </h3>
-          <p style="color: var(--color-muted-text); font-size: 0.85rem; margin-top: 6px; margin-bottom: 0;">
+          <p style="color: var(--color-muted-text); font-size: var(--font-size-sm); margin-top: 6px; margin-bottom: 0;">
             A unified academic management system featuring 5-tier role-based access control (RBAC), automated 75% attendance compliance auditing, and digital fee payment gateway reconciliation.
           </p>
         </div>
-        <button onclick="closeErpArchModal()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(239,68,68,0.2)'; this.style.color='#ef4444';" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.color='#cbd5e1';" aria-label="Close ERP Modal">
+        <button onclick="closeErpArchModal()" class="btn-icon" aria-label="Close ERP Modal">
           ✕
         </button>
       </div>
 
       <!-- Core Engine Features -->
       <div style="margin-bottom: 24px;">
-        <h4 style="color: #a78bfa; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+        <h4 style="color: var(--color-accent-purple); font-size: var(--font-size-sm); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
           <span>⚡</span> 1. Core Architectural Pillars
         </h4>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 12px;">
-            <div style="color: #38bdf8; font-weight: 700; font-size: 0.82rem; margin-bottom: 4px;">5-Tier Granular RBAC 🛡️</div>
-            <p style="font-size: 0.75rem; color: #94a3b8; margin: 0; line-height: 1.5;">Separation of privileges: Super Admin, Academic Dean, Department Faculty, Exam Controller, and Student Portal with JWT claims.</p>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: var(--radius-sm);">
+            <div style="color: var(--color-accent-cyan); font-weight: 700; font-size: var(--font-size-xs); margin-bottom: 4px;">5-Tier Granular RBAC 🛡️</div>
+            <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.5;">Separation of privileges: Super Admin, Academic Dean, Department Faculty, Exam Controller, and Student Portal with JWT claims.</p>
           </div>
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 12px;">
-            <div style="color: #a78bfa; font-weight: 700; font-size: 0.82rem; margin-bottom: 4px;">Attendance Audit Worker 📊</div>
-            <p style="font-size: 0.75rem; color: #94a3b8; margin: 0; line-height: 1.5;">Daily cron job recalculates cumulative percentages. Flags &lt;75% debarred status and dispatches automated alerts to students and guardians.</p>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: var(--radius-sm);">
+            <div style="color: var(--color-accent-purple); font-weight: 700; font-size: var(--font-size-xs); margin-bottom: 4px;">Attendance Audit Worker 📊</div>
+            <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.5;">Daily cron job recalculates cumulative percentages. Flags &lt;75% debarred status and dispatches automated alerts to students and guardians.</p>
           </div>
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 12px;">
-            <div style="color: #34d399; font-weight: 700; font-size: 0.82rem; margin-bottom: 4px;">Fee Payment Gateway Webhook 💳</div>
-            <p style="font-size: 0.75rem; color: #94a3b8; margin: 0; line-height: 1.5;">Idempotent payment webhook verification, automated digital invoice generation, and double-entry accounting reconciliation ledger.</p>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: var(--radius-sm);">
+            <div style="color: var(--color-accent-green); font-weight: 700; font-size: var(--font-size-xs); margin-bottom: 4px;">Fee Payment Gateway Webhook 💳</div>
+            <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.5;">Idempotent payment webhook verification, automated digital invoice generation, and double-entry accounting reconciliation ledger.</p>
           </div>
         </div>
       </div>
 
       <!-- Data Schema Blueprint -->
       <div style="margin-bottom: 24px;">
-        <h4 style="color: #a78bfa; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+        <h4 style="color: var(--color-accent-purple); font-size: var(--font-size-sm); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
           <span>⚡</span> 2. Data Schema &amp; Audit Trail Model
         </h4>
-        <div style="background: #05070c; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px; font-size: 0.75rem; line-height: 1.6; color: #94a3b8; overflow-x: auto;">
-<pre style="margin: 0; font-family: 'JetBrains Mono', 'Fira Code', monospace;"><code style="color: #e2e8f0;"><span style="color: #64748b;">// Academic Schema Entities</span>
-<span style="color: #f43f5e;">StudentProfile</span>:     { studentId, rollNumber, branch: 'CSE_AIML', semester, email, currentCgpa }
-<span style="color: #f43f5e;">CourseSubject</span>:      { courseCode, title, credits, department, facultyInChargeId, minAttendancePct: 75 }
-<span style="color: #f43f5e;">AttendanceLedger</span>:   { recordId, studentId, courseCode, lectureDate, status: ['PRESENT', 'ABSENT', 'DUTY_LEAVE'], markedByFacultyId }
-<span style="color: #f43f5e;">ExaminationResult</span>:  { examId, studentId, semester, subjects: [ { code, internalMarks, externalMarks, grade } ], sgpa }
-<span style="color: #f43f5e;">FeeTransaction</span>:     { txnId, studentId, semesterFee, paymentGateway: 'Razorpay', status: ['PENDING', 'SUCCESS', 'FAILED'], receiptNumber }</code></pre>
+        <div style="background: #05070c; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-sm); padding: 18px; font-size: var(--font-size-xs); line-height: 1.6; color: var(--color-text-muted); overflow-x: auto;">
+<pre style="margin: 0; font-family: var(--font-mono);"><code style="color: var(--color-text-light);"><span style="color: var(--color-text-muted);">// Academic Schema Entities</span>
+<span style="color: var(--color-accent-purple);">StudentProfile</span>:     { studentId, rollNumber, branch: 'CSE_AIML', semester, email, currentCgpa }
+<span style="color: var(--color-accent-purple);">CourseSubject</span>:      { courseCode, title, credits, department, facultyInChargeId, minAttendancePct: 75 }
+<span style="color: var(--color-accent-purple);">AttendanceLedger</span>:   { recordId, studentId, courseCode, lectureDate, status: ['PRESENT', 'ABSENT', 'DUTY_LEAVE'], markedByFacultyId }
+<span style="color: var(--color-accent-purple);">ExaminationResult</span>:  { examId, studentId, semester, subjects: [ { code, internalMarks, externalMarks, grade } ], sgpa }
+<span style="color: var(--color-accent-purple);">FeeTransaction</span>:     { txnId, studentId, semesterFee, paymentGateway: 'Razorpay', status: ['PENDING', 'SUCCESS', 'FAILED'], receiptNumber }</code></pre>
         </div>
       </div>
 
       <!-- Modal Footer -->
       <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; flex-wrap: wrap; gap: 12px;">
-        <span style="font-size: 0.75rem; color: var(--color-text-muted);">
+        <span style="font-size: var(--font-size-xs); color: var(--color-text-muted);">
           ⚡ Technologies: React.js, Node.js, Express, MongoDB, Tailwind CSS, Razorpay API
         </span>
-        <button onclick="closeErpArchModal()" style="padding: 10px 24px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #ffffff; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(139, 92, 246, 0.2)'; this.style.borderColor='#8b5cf6';" onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)';">
+        <button onclick="closeErpArchModal()" class="btn-secondary btn-sm">
           Close Blueprint
         </button>
       </div>
@@ -1523,43 +1521,43 @@
 
   <!-- GTA V REVERSE ENGINEER TECHNICAL ARCHITECTURE BLUEPRINT MODAL -->
   <div id="gta-re-modal" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.88); backdrop-filter: blur(14px);" onclick="if(event.target === this) closeGtaModal()">
-    <div id="gta-re-modal-card" style="background: rgba(10, 12, 18, 0.96); padding: 32px; border-radius: 24px; max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; border: 1px solid rgba(6, 182, 212, 0.35); box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 40px rgba(6, 182, 212, 0.15); transition: all 0.25s ease;" class="font-mono">
+    <div id="gta-re-modal-card" style="background: rgba(10, 12, 18, 0.96); padding: 32px; border-radius: var(--radius-md); max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; border: 1px solid rgba(6, 182, 212, 0.35); box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 40px rgba(6, 182, 212, 0.15); transition: all 0.25s ease;" class="font-mono">
       <!-- Modal Top Bar -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px;">
         <div>
-          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.35); color: var(--color-nebula-cyan); font-size: 0.72rem; font-weight: 700; margin-bottom: 8px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: var(--radius-pill); background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.35); color: var(--color-nebula-cyan); font-size: var(--font-size-xs); font-weight: 700; margin-bottom: 8px;">
             <span>🔬 RAGE ENGINE x64 • SYSTEM ARCHITECTURE &amp; REVERSE ENGINEERING</span>
           </div>
-          <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: #ffffff; margin: 0; line-height: 1.2;">
+          <h3 style="font-family: var(--font-display); font-size: var(--font-size-xl); font-weight: 800; color: #ffffff; margin: 0; line-height: 1.2;">
             RAGE Engine Systems Architecture Dissection
           </h3>
-          <p style="color: var(--color-muted-text); font-size: 0.85rem; margin-top: 6px; margin-bottom: 0;">
+          <p style="color: var(--color-muted-text); font-size: var(--font-size-sm); margin-top: 6px; margin-bottom: 0;">
             A low-level engineering deep-dive into the Rockstar Advanced Game Engine (RAGE) 64-bit virtual memory layout, native function invocation tables, and WebAssembly compilation pipeline.
           </p>
         </div>
-        <button onclick="closeGtaModal()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(239,68,68,0.2)'; this.style.color='#ef4444';" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.color='#cbd5e1';" aria-label="Close GTA V Modal">
+        <button onclick="closeGtaModal()" class="btn-icon" aria-label="Close GTA V Modal">
           ✕
         </button>
       </div>
 
       <!-- Architecture Pipeline Diagram -->
       <div style="margin-bottom: 24px;">
-        <h4 style="color: var(--color-nebula-cyan); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+        <h4 style="color: var(--color-nebula-cyan); font-size: var(--font-size-sm); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
           <span>⚡</span> 1. Engine Execution &amp; Memory Hooking Pipeline
         </h4>
-        <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 14px; padding: 18px; font-size: 0.78rem; line-height: 1.7; color: #e2e8f0; overflow-x: auto;">
+        <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: var(--radius-sm); padding: 18px; font-size: var(--font-size-xs); line-height: 1.7; color: var(--color-text-light); overflow-x: auto;">
           <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #06b6d4; border-radius: 4px;">
-              <strong style="color: #38bdf8;">[1] Process Virtual Memory Space Injection:</strong> Hooks process execution inside the 64-bit virtual address space, binding directly into the primary engine threads, the Script Virtual Machine runtime, and the Direct3D graphics pipeline.
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #06b6d4; border-radius: var(--radius-sm);">
+              <strong style="color: var(--color-accent-cyan);">[1] Process Virtual Memory Space Injection:</strong> Hooks process execution inside the 64-bit virtual address space, binding directly into the primary engine threads, the Script Virtual Machine runtime, and the Direct3D graphics pipeline.
             </div>
-            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #8b5cf6; border-radius: 4px;">
-              <strong style="color: #a78bfa;">[2] Memory Pattern SigScanning (AOB) — Dynamic Address Resolution:</strong> Resolves core internal pointers (<code>WorldPtr</code>, <code>EntityPool</code>, ViewProjection matrices) in sub-millisecond execution times using SIMD-accelerated array of byte (AOB) signature pattern scanning across game updates.
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #8b5cf6; border-radius: var(--radius-sm);">
+              <strong style="color: var(--color-accent-purple);">[2] Memory Pattern SigScanning (AOB) — Dynamic Address Resolution:</strong> Resolves core internal pointers (<code>WorldPtr</code>, <code>EntityPool</code>, ViewProjection matrices) in sub-millisecond execution times using SIMD-accelerated array of byte (AOB) signature pattern scanning across game updates.
             </div>
-            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #10b981; border-radius: 4px;">
-              <strong style="color: #34d399;">[3] Native Invocation &amp; Crossmap Hash Traversal:</strong> Traverses dynamic crossmap lookup tables to resolve encrypted 64-bit native function hashes, constructing type-safe argument registers on the <code>scrNativeCallContext</code> stack.
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #10b981; border-radius: var(--radius-sm);">
+              <strong style="color: var(--color-accent-green);">[3] Native Invocation &amp; Crossmap Hash Traversal:</strong> Traverses dynamic crossmap lookup tables to resolve encrypted 64-bit native function hashes, constructing type-safe argument registers on the <code>scrNativeCallContext</code> stack.
             </div>
-            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #f59e0b; border-radius: 4px;">
-              <strong style="color: #fbbf24;">[4] DirectX 11 Present Detour &amp; Overlay Rendering:</strong> Injects a low-latency function detour on <code>IDXGISwapChain::Present</code> (VTable index 8) via assembly trampolines, rendering interactive telemetry dashboards at full monitor refresh rates.
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.03); border-left: 3px solid #f59e0b; border-radius: var(--radius-sm);">
+              <strong style="color: var(--color-accent-gold);">[4] DirectX 11 Present Detour &amp; Overlay Rendering:</strong> Injects a low-latency function detour on <code>IDXGISwapChain::Present</code> (VTable index 8) via assembly trampolines, rendering interactive telemetry dashboards at full monitor refresh rates.
             </div>
           </div>
         </div>
@@ -1567,56 +1565,56 @@
 
       <!-- Memory Offsets & Code Demonstration -->
       <div style="margin-bottom: 24px;">
-        <h4 style="color: var(--color-nebula-cyan); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+        <h4 style="color: var(--color-nebula-cyan); font-size: var(--font-size-sm); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
           <span>⚡</span> 2. C++ Dynamic Pointer Traversal &amp; Entity Manipulation
         </h4>
-        <div style="background: #05070c; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px; font-size: 0.75rem; line-height: 1.6; color: #94a3b8; overflow-x: auto;">
-<pre style="margin: 0; font-family: 'JetBrains Mono', 'Fira Code', monospace;"><code style="color: #e2e8f0;"><span style="color: #64748b;">// 1. Dynamic SigScan: Resolve World Pointer dynamically via RIP-relative addressing</span>
-<span style="color: #f43f5e;">uintptr_t</span> dwWorld = Memory::PatternScan(<span style="color: #38bdf8;">"48 8B 05 ? ? ? ? 45 ? ? ? ? 48 8B 48 08"</span>);
-<span style="color: #f43f5e;">uintptr_t</span> pWorld  = *reinterpret_cast&lt;<span style="color: #f43f5e;">uintptr_t</span>*&gt;(dwWorld + *reinterpret_cast&lt;<span style="color: #f43f5e;">int32_t</span>*&gt;(dwWorld + <span style="color: #fbbf24;">3</span>) + <span style="color: #fbbf24;">7</span>);
+        <div style="background: #05070c; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-sm); padding: 18px; font-size: var(--font-size-xs); line-height: 1.6; color: var(--color-text-muted); overflow-x: auto;">
+<pre style="margin: 0; font-family: var(--font-mono);"><code style="color: var(--color-text-light);"><span style="color: var(--color-text-muted);">// 1. Dynamic SigScan: Resolve World Pointer dynamically via RIP-relative addressing</span>
+<span style="color: var(--color-accent-purple);">uintptr_t</span> dwWorld = Memory::PatternScan(<span style="color: var(--color-accent-cyan);">"48 8B 05 ? ? ? ? 45 ? ? ? ? 48 8B 48 08"</span>);
+<span style="color: var(--color-accent-purple);">uintptr_t</span> pWorld  = *reinterpret_cast&lt;<span style="color: var(--color-accent-purple);">uintptr_t</span>*&gt;(dwWorld + *reinterpret_cast&lt;<span style="color: var(--color-accent-purple);">int32_t</span>*&gt;(dwWorld + <span style="color: var(--color-accent-gold);">3</span>) + <span style="color: var(--color-accent-gold);">7</span>);
 
-<span style="color: #64748b;">// 2. Local Player Entity (CPed) Instance &amp; Navigation Coordinates</span>
-<span style="color: #f43f5e;">CPed</span>* pLocalPlayer   = *reinterpret_cast&lt;<span style="color: #f43f5e;">CPed</span>**&gt;(pWorld + <span style="color: #fbbf24;">0x08</span>);
-<span style="color: #f43f5e;">CNavigation</span>* pNav    = pLocalPlayer-&gt;<span style="color: #38bdf8;">m_pNavigation</span>; <span style="color: #64748b;">// Offset 0x30</span>
-<span style="color: #f43f5e;">Vector3</span> playerCoords = pNav-&gt;<span style="color: #38bdf8;">m_vPosition</span>;          <span style="color: #64748b;">// Real-time world coordinates vector</span>
+<span style="color: var(--color-text-muted);">// 2. Local Player Entity (CPed) Instance &amp; Navigation Coordinates</span>
+<span style="color: var(--color-accent-purple);">CPed</span>* pLocalPlayer   = *reinterpret_cast&lt;<span style="color: var(--color-accent-purple);">CPed</span>**&gt;(pWorld + <span style="color: var(--color-accent-gold);">0x08</span>);
+<span style="color: var(--color-accent-purple);">CNavigation</span>* pNav    = pLocalPlayer-&gt;<span style="color: var(--color-accent-cyan);">m_pNavigation</span>; <span style="color: var(--color-text-muted);">// Offset 0x30</span>
+<span style="color: var(--color-accent-purple);">Vector3</span> playerCoords = pNav-&gt;<span style="color: var(--color-accent-cyan);">m_vPosition</span>;          <span style="color: var(--color-text-muted);">// Real-time world coordinates vector</span>
 
-<span style="color: #64748b;">// 3. Vehicle Subsystem &amp; Physical Dynamics Properties</span>
-<span style="color: #f43f5e;">CVehicle</span>* pVehicle = pLocalPlayer-&gt;<span style="color: #38bdf8;">m_pVehicle</span>;    <span style="color: #64748b;">// Offset 0xD10</span>
-<span style="color: #f43f5e;">float</span> engineHealth = pVehicle-&gt;<span style="color: #38bdf8;">m_fEngineHealth</span>;   <span style="color: #64748b;">// Engine state &amp; performance thresholds</span></code></pre>
+<span style="color: var(--color-text-muted);">// 3. Vehicle Subsystem &amp; Physical Dynamics Properties</span>
+<span style="color: var(--color-accent-purple);">CVehicle</span>* pVehicle = pLocalPlayer-&gt;<span style="color: var(--color-accent-cyan);">m_pVehicle</span>;    <span style="color: var(--color-text-muted);">// Offset 0xD10</span>
+<span style="color: var(--color-accent-purple);">float</span> engineHealth = pVehicle-&gt;<span style="color: var(--color-accent-cyan);">m_fEngineHealth</span>;   <span style="color: var(--color-text-muted);">// Engine state &amp; performance thresholds</span></code></pre>
         </div>
       </div>
 
       <!-- Core Research Highlights & Capabilities -->
       <div style="margin-bottom: 24px;">
-        <h4 style="color: var(--color-nebula-cyan); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+        <h4 style="color: var(--color-nebula-cyan); font-size: var(--font-size-sm); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
           <span>⚡</span> 3. Key Systems Architecture Highlights
         </h4>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 12px;">
-            <div style="color: #38bdf8; font-weight: 700; font-size: 0.82rem; margin-bottom: 4px;">Zero FPS Drop Detours ⚡</div>
-            <p style="font-size: 0.75rem; color: #94a3b8; margin: 0; line-height: 1.5;">Sub-microsecond execution latency on render and script threads, preserving maximum monitor refresh rates with zero thread starvation.</p>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: var(--radius-sm);">
+            <div style="color: var(--color-accent-cyan); font-weight: 700; font-size: var(--font-size-xs); margin-bottom: 4px;">Zero FPS Drop Detours ⚡</div>
+            <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.5;">Sub-microsecond execution latency on render and script threads, preserving maximum monitor refresh rates with zero thread starvation.</p>
           </div>
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 12px;">
-            <div style="color: #a78bfa; font-weight: 700; font-size: 0.82rem; margin-bottom: 4px;">Script VM Stack Parser 🧠</div>
-            <p style="font-size: 0.75rem; color: #94a3b8; margin: 0; line-height: 1.5;">Parses compiled <code>.ysc</code> binary script bytecode to monitor global state registers, thread priority queues, and coroutine execution flow.</p>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: var(--radius-sm);">
+            <div style="color: var(--color-accent-purple); font-weight: 700; font-size: var(--font-size-xs); margin-bottom: 4px;">Script VM Stack Parser 🧠</div>
+            <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.5;">Parses compiled <code>.ysc</code> binary script bytecode to monitor global state registers, thread priority queues, and coroutine execution flow.</p>
           </div>
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: 12px;">
-            <div style="color: #34d399; font-weight: 700; font-size: 0.82rem; margin-bottom: 4px;">WebGPU &amp; WebAssembly Compilation 🚀</div>
-            <p style="font-size: 0.75rem; color: #94a3b8; margin: 0; line-height: 1.5;">Architected a WebAssembly and WebGPU execution bridge to stream complex 3D engine assets and shaders directly into client browsers.</p>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 14px; border-radius: var(--radius-sm);">
+            <div style="color: var(--color-accent-green); font-weight: 700; font-size: var(--font-size-xs); margin-bottom: 4px;">WebGPU &amp; WebAssembly Compilation 🚀</div>
+            <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; line-height: 1.5;">Architected a WebAssembly and WebGPU execution bridge to stream complex 3D engine assets and shaders directly into client browsers.</p>
           </div>
         </div>
       </div>
 
       <!-- Modal Footer -->
       <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; flex-wrap: wrap; gap: 12px;">
-        <span style="font-size: 0.75rem; color: var(--color-text-muted);">
+        <span style="font-size: var(--font-size-xs); color: var(--color-text-muted);">
           🔬 Rockstar Advanced Game Engine (RAGE) Low-Level Research Lab
         </span>
         <div style="display: flex; gap: 10px;">
-          <a href="/gta" target="_blank" style="padding: 10px 22px; border-radius: 12px; background: linear-gradient(135deg, #10b981, #06b6d4); color: #000; font-weight: 800; font-size: 0.8rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+          <a href="/gta" target="_blank" class="btn-primary btn-sm" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
             🎮 Launch GTA V (WebGPU)
           </a>
-          <button onclick="closeGtaModal()" style="padding: 10px 24px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #ffffff; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(6, 182, 212, 0.2)'; this.style.borderColor='#06b6d4';" onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)';">
+          <button onclick="closeGtaModal()" class="btn-secondary btn-sm">
             Close Blueprint
           </button>
         </div>
@@ -1794,7 +1792,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           <span>shivasahu0612@gmail.com</span>
         </a>
-        <button type="button" onclick="copyEmail(event)" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; padding: 4px 10px; color: var(--color-text-light); font-size: 11px; font-family: var(--font-mono); cursor: pointer; display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s ease;" title="Copy to clipboard" aria-label="Copy email address to clipboard">
+        <button type="button" onclick="copyEmail(event)" class="btn-secondary btn-sm" style="padding: 4px 10px; font-size: var(--font-size-xs); font-family: var(--font-mono); border-radius: var(--radius-sm);" title="Copy to clipboard" aria-label="Copy email address to clipboard">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
           <span>Copy</span>
         </button>
@@ -1802,7 +1800,7 @@
     </div>
   </footer>
 
-  <script src="app.js?v=2.0.21" type="module"></script>
+  <script src="app.js?v=2.0.23" type="module"></script>
 
   <!-- Service Worker Registration & Version Sync Engine -->
   <script>
